@@ -1,21 +1,64 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { SITE_TITLE } from '../consts';
 
-const base = import.meta.env.BASE_URL.endsWith('/')
-	? import.meta.env.BASE_URL
-	: `${import.meta.env.BASE_URL}/`;
+const basePath = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const currentPath =
+	Astro.url.pathname === basePath
+		? ''
+		: Astro.url.pathname.startsWith(`${basePath}/`)
+			? Astro.url.pathname.slice(basePath.length + 1)
+			: Astro.url.pathname.replace(/^\/+/, '');
+const route = currentPath.replace(/\/+$/, '');
+const isEnglish = route === 'en' || route.startsWith('en/');
+const englishRoute = isEnglish ? route.replace(/^en\/?/, '') : '';
 
-const links = [
-	{ label: 'Úvod', href: base },
-	{ label: 'Reference', href: `${base}reference/` },
-	{ label: 'Příspěvky', href: `${base}blog/` },
-	{ label: 'Kontakt', href: `${base}contact/` },
-];
+const csToEn: Record<string, string> = {
+	'': '',
+	reference: 'references',
+	contact: 'contact',
+	blog: 'publications',
+};
+const enToCs: Record<string, string> = {
+	'': '',
+	references: 'reference',
+	publications: 'blog',
+	contact: 'contact',
+};
+
+function getLanguageUrl(locale: 'cs' | 'en') {
+	if (locale === 'en') {
+		if (isEnglish) return getRelativeLocaleUrl('en', englishRoute);
+		const translatedRoute =
+			route.startsWith('blog/') ? 'publications' : csToEn[route] ?? '';
+		return getRelativeLocaleUrl('en', translatedRoute);
+	}
+
+	if (!isEnglish) return getRelativeLocaleUrl('cs', route);
+	const translatedRoute = englishRoute.startsWith('publications/')
+		? 'blog'
+		: enToCs[englishRoute] ?? '';
+	return getRelativeLocaleUrl('cs', translatedRoute);
+}
+
+const links = isEnglish
+	? [
+			{ label: 'Introduction', href: getRelativeLocaleUrl('en', '') },
+			{ label: 'Projects', href: getRelativeLocaleUrl('en', 'references') },
+			{ label: 'Publications', href: getRelativeLocaleUrl('en', 'publications') },
+			{ label: 'Contact', href: getRelativeLocaleUrl('en', 'contact') },
+		]
+	: [
+			{ label: 'Úvod', href: getRelativeLocaleUrl('cs', '') },
+			{ label: 'Reference', href: getRelativeLocaleUrl('cs', 'reference') },
+			{ label: 'Příspěvky', href: getRelativeLocaleUrl('cs', 'blog') },
+			{ label: 'Kontakt', href: getRelativeLocaleUrl('cs', 'contact') },
+		];
 ---
 
 <header class="sticky top-0 z-50 border-b border-slate-800/90 bg-slate-950/95 text-slate-100 shadow-lg shadow-black/10 backdrop-blur">
 	<div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-		<a class="group flex items-center gap-3 no-underline" href={base} aria-label={`${SITE_TITLE} — úvod`}>
+		<a class="group flex items-center gap-3 no-underline" href={getRelativeLocaleUrl(isEnglish ? 'en' : 'cs', '')} aria-label={`${SITE_TITLE} — ${isEnglish ? 'introduction' : 'úvod'}`}>
 			<span class="flex size-11 items-center justify-center rounded-lg border border-cyan-400/40 bg-cyan-400/10 font-mono text-sm font-bold tracking-tight text-cyan-300 transition group-hover:border-cyan-300">
 				CE
 			</span>
@@ -25,15 +68,34 @@ const links = [
 			</span>
 		</a>
 
-		<nav aria-label="Hlavní navigace" class="flex flex-wrap items-center gap-1 sm:gap-2">
-			{links.map(({ label, href }) => (
+		<div class="flex flex-wrap items-center gap-2 sm:gap-4">
+			<nav aria-label={isEnglish ? 'Main navigation' : 'Hlavní navigace'} class="flex flex-wrap items-center gap-1 sm:gap-2">
+				{links.map(({ label, href }) => (
+					<a
+						class="rounded-md px-3 py-2 text-sm font-medium text-slate-300 no-underline transition hover:bg-slate-800 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+						href={href}
+					>
+						{label}
+					</a>
+				))}
+			</nav>
+			<nav aria-label={isEnglish ? 'Language selection' : 'Výběr jazyka'} class="flex items-center gap-1 border-l border-slate-700 pl-3 font-mono text-xs font-semibold">
 				<a
-					class="rounded-md px-3 py-2 text-sm font-medium text-slate-300 no-underline transition hover:bg-slate-800 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-					href={href}
+					class={`rounded px-1.5 py-1 no-underline transition hover:text-cyan-300 ${isEnglish ? 'text-slate-400' : 'text-cyan-300'}`}
+					href={getLanguageUrl('cs')}
+					aria-current={!isEnglish ? 'page' : undefined}
 				>
-					{label}
+					CZ
 				</a>
-			))}
-		</nav>
+				<span class="text-slate-600" aria-hidden="true">|</span>
+				<a
+					class={`rounded px-1.5 py-1 no-underline transition hover:text-cyan-300 ${isEnglish ? 'text-cyan-300' : 'text-slate-400'}`}
+					href={getLanguageUrl('en')}
+					aria-current={isEnglish ? 'page' : undefined}
+				>
+					EN
+				</a>
+			</nav>
+		</div>
 	</div>
 </header>
