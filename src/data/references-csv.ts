@@ -33,6 +33,7 @@ type Project = {
 	client: string;
 	clientFullName?: string;
 	clientWebsite?: string;
+	commissionedBy?: string;
 	title: string;
 	description: string;
 	technologies: string[];
@@ -147,11 +148,16 @@ export function getReferenceGroups(csv: string, locale: Locale, customerCsv: str
 
 		const badges = list(row[`badges_${locale}`]);
 		const customer = customersByName.get(client.trim().toLowerCase());
+		const commissionedBy = row.commissioned_by.trim();
 		group.projects.push({
-			year: older ? olderLabel : row.year,
+			year: older ? '2014–2016' : row.year,
 			client,
 			clientFullName: customer?.full_name.trim() || undefined,
 			clientWebsite: customer?.website.trim() || undefined,
+			commissionedBy: row.customer.trim().toLowerCase() !== client.trim().toLowerCase()
+				&& commissionedBy.toLowerCase() !== client.trim().toLowerCase()
+				? commissionedBy || undefined
+				: undefined,
 			title,
 			description,
 			technologies: list(row[`technologies_${locale}`]),

@@ -117,6 +117,9 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 									<h3 class="mb-3 text-lg font-semibold leading-snug text-white sm:text-xl">
 										{project.title}
 									</h3>
+									{project.commissionedBy && (
+										<p class="mb-3 text-xs text-slate-400">Delivered through {project.commissionedBy}</p>
+									)}
 									{project.badges && (
 										<ul aria-label="Vehicle models and projects" class="mb-5 flex list-none flex-wrap gap-2 p-0">
 											{project.badges.map((badge) => (
