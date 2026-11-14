@@ -11,8 +11,6 @@ type ReferenceRow = {
 	reference_group: string;
 	show_cs: string;
 	show_en: string;
-	client_cs: string;
-	client_en: string;
 	title_cs: string;
 	title_en: string;
 	description_cs: string;
@@ -43,7 +41,7 @@ type ReferenceGroup = {
 
 const columns: (keyof ReferenceRow)[] = [
 	'year', 'customer', 'end_customer', 'commissioned_by', 'reference_group', 'show_cs', 'show_en',
-	'client_cs', 'client_en', 'title_cs', 'title_en', 'description_cs', 'description_en',
+	'title_cs', 'title_en', 'description_cs', 'description_en',
 	'technologies_cs', 'technologies_en', 'category', 'badges_cs', 'badges_en',
 ];
 
@@ -78,10 +76,10 @@ export function getReferenceGroups(csv: string, locale: Locale): ReferenceGroup[
 		if (!['0', '1'].includes(row.show_cs) || !['0', '1'].includes(row.show_en)) {
 			throw new Error(`${location}: show_cs and show_en must be 0 or 1.`);
 		}
+		if (row[`show_${locale}`] === '0') continue;
 		if (!isCategory(row.category)) {
 			throw new Error(`${location}: invalid category.`);
 		}
-		if (row[`show_${locale}`] === '0') continue;
 		if (row.reference_group) {
 			if (publishedGroups.has(row.reference_group)) {
 				throw new Error(`${location}: reference group ${row.reference_group} has multiple published ${locale} rows.`);
@@ -89,7 +87,7 @@ export function getReferenceGroups(csv: string, locale: Locale): ReferenceGroup[
 			publishedGroups.add(row.reference_group);
 		}
 
-		const client = row[`client_${locale}`];
+		const client = row.end_customer.trim() ? row.end_customer : row.customer;
 		const title = row[`title_${locale}`];
 		const description = row[`description_${locale}`];
 		if (!client.trim() || !title.trim() || !description.trim()) {
