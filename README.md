@@ -56,7 +56,7 @@ Edit [references.csv](src/data/references.csv) in a spreadsheet or text editor. 
 - Offer `project_description` values are editable Czech descriptions, based on matching offer PDFs or references where available. They are not updated automatically; some offers have no description.
 - [customers.csv](src/data/customers.csv) is an editable snapshot of distinct customer and end-customer names from the offers. Its `direct_customer` and `end_customer` columns indicate each role with `1` or `0`. The combined file is a snapshot and is not updated automatically when the source CSVs change.
 - Folder-derived names are provisional, not proof that a project was completed.
-- The Czech 2014–2016 Magneti Marelli card is consolidated; the corresponding English-only rows retain the existing individual cards.
+- The 2014–2016 Magneti Marelli projects are consolidated into one card in both languages; the individual rows are kept unpublished.
 
 The CSV files contain customer and offer metadata. Unpublished fields are not included in the generated site, but they **will be visible in the repository** if committed to a public repository.
 
