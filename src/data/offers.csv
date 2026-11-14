@@ -1,0 +1,193 @@
+﻿year;offer_number;source_folder;customer;end_customer;project;project_description
+2026;RT26001;RT26001_Hoerbiger Press;HOERBIGER;HOERBIGER;Press;Vývoj softwaru pro lisovací stanici a programování v TIA Portal.
+2026;RT26002;RT26002_ESTELAR OSDP;ESTELAR;ESTELAR;OSDP;Programátorské práce na více embedded zařízeních.
+2026;RT26003;RT26003_Hoerbiger Line;HOERBIGER;HOERBIGER;Line;Instalace výrobní linky v Bolesławci.
+2026;RT26004;RT26004_IFTS Valeo RIVIAN;IFTS;VALEO;RIVIAN;Programátorské práce - implementace projektu RLT Rivian do linky VALEO
+2026;RT26005;RT26005_MEVRU Turecko;MEVRU;MEVRU;Turecko;Programátorské práce - servisní nastavení aplikace pro světlomety, Turecko
+2026;RT26006;RT26006_PKS Opava;PKS;PKS;Opava;
+2026;RT26007;RT26007_MEVRU Frox;MEVRU;MEVRU;Frox;
+2026;RT26008;RT26008_VALEO RnD RLT62;VALEO;VALEO;RnD RLT62;Programátorské práce - RLT integrace Gen62 pro warranty stanici
+2026;RT26009;RT26009_Hoerbiger Ass;HOERBIGER;HOERBIGER;Ass;
+2026;RT26010;RT26010_IFTS JIG;IFTS;IFTS;JIG;
+2025;RT25001;RT25001_AVERNA Valeo GSRV;AVERNA;VALEO;GSRV;Programátorské práce - PLC programování stanice pro VALEO GSRV
+2025;RT25002;RT25002_AVERNA Valeo DMS500;AVERNA;VALEO;DMS500;Programátorské práce - PLC úpravy stanice DMS na variantu 500
+2025;RT25003;RT25003_Hoerbiger EOL;HOERBIGER;HOERBIGER;EOL;Vývoj softwaru pro EoL stanici v LabVIEW.
+2025;RT25004;RT25004_Hoerbiger Helium;HOERBIGER;HOERBIGER;Helium;Vývoj softwaru pro heliovou stanici v TIA Portal.
+2025;RT25005;RT25005_IFTS Valeo RLT62;IFTS;VALEO;RLT62;Programátorské práce - Úpravy stanic RLT, VALEO Rakovník
+2025;RT25006;RT25006_PKS Model;PKS;MODEL;;Servisní výjezdy pro MODEL Moravské Budějovice.
+2025;RT25007;RT25007_IFTS JIGs;IFTS;IFTS;JIGs;Programátorské práce - PLC aplikace pro VALEO JIGs v Wemdingu
+2025;RT25008;RT25008_ESTELAR EDK5F;ESTELAR;ESTELAR;EDK5F;Programátorské práce na několika generacích embedded zařízení a jejich funkcích.
+2025;RT25009;RT25009_PKS Model Ext;PKS;MODEL;Ext;Programátorské práce - PLC úpravy pro MODEL, rozšíření SECO+ENGICO
+2025;RT25010;RT25010_ESTELAR HR100;ESTELAR;ESTELAR;HR100;Programátorské práce na několika generacích embedded zařízení a jejich funkcích.
+2025;RT25011;RT25011_VSB 5;VSB;VSB;5;
+2025;RT25012;RT25012_ESTELAR M06;ESTELAR;ESTELAR;M06;Programátorské práce na několika generacích embedded zařízení a jejich funkcích.
+2025;RT25013;RT25013_AVERNA DMS;AVERNA;AVERNA;DMS;Programátorské práce - PLC úpravy stanice DMS pro výběr verze a uživatelé
+2025;RT25014;RT25014_IFTS Valeo RLT62 500;IFTS;VALEO;RLT62 500;Programátorské práce - Úpravy stanic RLT pro variantu 6.2 R500, VALEO Rakovník
+2025;RT25015;RT25015_AVERNA Siemens LF;AVERNA;SIEMENS;LF;Programátorské práce - PLC programování testovací stanice LF pro Siemens, s.r.o., Trutnov
+2025;RT25016;RT25016_Hoerbiger ADJ EOL;HOERBIGER;HOERBIGER;ADJ EOL;Vývoj softwaru pro seřizovací a EoL stanici v LabVIEW a TIA Portal.
+2025;RT25017;RT25017_Hoerbiger Press;HOERBIGER;HOERBIGER;Press;Vývoj softwaru pro výrobní linku vstřikovačů.
+2025;RT25018;RT25018_AVERNA DMS service;AVERNA;AVERNA;DMS service;Programátorské práce - Servis stanice DMS, VALEO Rakovník
+2025;RT25019;RT25019_IFTS DMS;IFTS;IFTS;DMS;Programátorské práce - Stanice DMS, VALEO Rakovník
+2025;RT25020;RT25020_ESTELAR M12;ESTELAR;ESTELAR;M12;Programátorské práce na několika generacích embedded zařízení a jejich funkcích.
+2024;RT24001;RT24001_ESTELAR SL20;ESTELAR;ESTELAR;SL20;
+2024;RT24002;RT24002_PKS;PKS;PKS;;Programátorské práce - laboratorní pracoviště pro testování ventilů, aplikace NI LabView
+2024;RT24002;RT24002_PKS Ventily;PKS;PKS;Ventily;Programátorské práce - laboratorní pracoviště pro testování ventilů, aplikace NI LabView
+2024;RT24003;RT24003_ELCOM Purem Dummy;ELCOM;PUREM;Dummy;Programátorské práce - PUREM Rakovník, BMW Dummy part pro směny
+2024;RT24004;RT24004_VSB;VSB;VSB;;Rozšíření a zprovoznění systému sběru dat, měření elektrických veličin a vyhodnocení výsledků.
+2024;RT24005;RT24005_VSB 2;VSB;VSB;2;Rozšíření a zprovoznění systému sběru dat, měření elektrických veličin a vyhodnocení výsledků.
+2024;RT24006;RT24006_IFTS VALEO;IFTS;VALEO;;Programátorské práce - PLC Valeo Rakovník Automatic Incoming Station
+2024;RT24007;RT24007_ELCOM Embraco;ELCOM;EMBRACO;;Programátorské práce - Embraco Slovensko, oživení u zákazníka
+2024;RT24008;RT24008_IFTS PQ26;IFTS;IFTS;PQ26;Programátorské práce - Valeo Rakovník, integrace projektů PQ26 Clima+KMM
+2024;RT24009;RT24009_VSB PLC;VSB;VSB;PLC;Programátorské práce - PLC aplikace pro systém regulace odpadního tepla
+2024;RT24010;RT24010_PKS Dopravnik;PKS;PKS;Dopravnik;Programátorské práce - PLC systém pro dopravníky
+2024;RT24011;RT24011_Konecny Barcode;KONECNY;KONECNY;Barcode;Programátorské práce - Vývoj aplikace pro tři stanice skenování
+2024;RT24012;RT24012_Hoerbiger Trysky;HOERBIGER;HOERBIGER;Trysky;Programátorské práce - vývoj aplikace pro testování vstřikovacích trysek motoru v prostředí NI LabView
+2024;RT24013;RT24013_AVERNA Purem Safety;AVERNA;PUREM;Safety;Programátorské práce - PUREM Rakovník, Renault úprava safety
+2024;RT24014;RT24014_AVERNA Siemens LF;AVERNA;SIEMENS;LF;Programátorské práce - PLC programování testovací stanice pro Siemens, s.r.o., Trutnov
+2024;RT24015;RT24015_ESTELAR HR100;ESTELAR;ESTELAR;HR100;
+2024;RT24016;RT24016_ELDAM Safety;ELDAM;ELDAM;Safety;Programátorské práce - HUYNDAI prog. bezpečnostního okruhu
+2024;RT24017;RT24017_ELDAM Yolo;ELDAM;ELDAM;Yolo;Programátorské práce - HUYNDAI aplikace pro vyhodnocení snímků pomocí YOLO
+2024;RT24018;RT24018_VSB 3;VSB;VSB;3;Rozšíření a zprovoznění systému sběru dat, měření elektrických veličin a vyhodnocení výsledků.
+2024;RT24019;RT24019_VALEO RLT;VALEO;VALEO;RLT;Programátorské práce - VALEO Linka RLT, úprava sekvence
+2024;RT24020;RT24020_VALEO NI;VALEO;VALEO;NI;PLC aplikace pro vstupní výrobní stanici a testovací pracoviště.
+2024;RT24021;RT24021_PKS Dopravnik2;PKS;PKS;Dopravnik2;Programátorské práce - PLC systém pro dopravníky Plzeň
+2024;RT24022;RT24022_Hoerbiger Adjustment;HOERBIGER;HOERBIGER;Adjustment;Vývoj softwaru pro montážní stanici v LabVIEW.
+2024;RT24023;RT24023_AVERNA Siemens LF;AVERNA;SIEMENS;LF;Programátorské práce - PLC úpravy stanice pro Siemens, s.r.o., Trutnov
+2024;RT24024;RT24024_VSB 3;VSB;VSB;3;Rozšíření a zprovoznění systému sběru dat, měření elektrických veličin a vyhodnocení výsledků.
+2023;RT23001;RT23001_PKS;PKS;PKS;;Programátorské práce - laboratorní pracoviště pro testování ventilů, aplikace NI LabView
+2023;RT23002;RT23002_32dev;32DEV;32DEV;;LED panel 50x50 cm, Red-FarRed-Blue, regulace každé barvy zvlášť, celkový výkon cca 300W (1200 umol m-2 s-1)
+2023;RT23003;RT23003_ELCOM Purem BMW;ELCOM;PUREM;BMW;Programátorské práce - SW PLC pro NC288/281 BMWFAAR WE - více práce
+2023;RT23004;RT23004_ELCOM Purem BMW3;ELCOM;PUREM;BMW3;Programátorské práce - PLC programování stanice pro BMW-3, Siemens TIA Portal, PUREM Rakovník
+2023;RT23005;RT23005_ELCOM Purem Renault;ELCOM;PUREM;Renault;Programátorské práce - PLC programování stanice pro zakládání RENAULT, Siemens TIA Portal, PUREM Rakovník
+2023;RT23006;RT23006_ELCOM Valeo CAM;ELCOM;VALEO;CAM;Programátorské práce - PLC programování stanic pro VALEO DMS Cam
+2023;RT23007;RT23007_ESTELAR AR420;ESTELAR;ESTELAR;AR420;Vývoj a úpravy více embedded zařízení a jejich funkcí.
+2023;RT23008;RT23008_ELCOM Purem BMW Dummy;ELCOM;PUREM;BMW Dummy;Programátorské práce - NC288/281 BMW FAAR WE - servisní výjezd
+2023;RT23009;RT23009_VALEO Front CAM;VALEO;VALEO;Front CAM;Softwarová a servisní podpora projektu VALEO Front Camera v Rakovníku.
+2023;RT23010;RT23010_PUREM Manipulator;PUREM;PUREM;Manipulator;Servis a asistence při testování a předání manipulátoru pro PUREM Rakovník.
+2023;RT23011;RT23011_ESTELAR RT320;ESTELAR;ESTELAR;RT320;Vývoj a úpravy více embedded zařízení a jejich funkcí.
+2023;RT23012;RT23012_MASSAG Servis;MASSAG;MASSAG;Servis;Servis a úpravy PLC průmyslové linky pro značení výrobků.
+2023;RT23013;RT23013_ELCOM Purem BMW Color;ELCOM;PUREM;BMW Color;PLC SW kontrola přítomnosti gumy po lisování
+2023;RT23014;RT23014_ELCOM Siemens;ELCOM;SIEMENS;;Tester pro 3UF8 IUM+Loadfeeder
+2023;RT23015;RT23015_ELCOM Valeo PCK;ELCOM;VALEO;PCK;Programátorské práce - PLC programování stanic pro VALEO DMS Package
+2023;RT23016;RT23016_ELCOM Purem Renault;ELCOM;PUREM;Renault;Úprava výrobní stanice Renault pro PUREM Rakovník včetně logování pohybů robota, sekvence zásobníků a počítadla kusů.
+2023;RT23017;RT23017_ELCOM Embraco;ELCOM;EMBRACO;;Programátorské práce - PLC programování testovací stanice pro Embraco Slovakia, měření BEMF
+2023;RT23018;RT23018_ESTELAR AR420;ESTELAR;ESTELAR;AR420;Vývoj a úpravy více embedded zařízení a jejich funkcí.
+2023;RT23019;RT23019_ELCOM BCS;ELCOM;ELCOM;BCS;Programátorské práce - PLC programování stanice pro BCS
+2023;RT23020;RT23020_TE;TE;TE;;Programátorské práce - testovací sw pro TE DL360
+2022;RT22001;RT22001_VALEO PQ26;VALEO;VALEO;PQ26;Programátorské práce - VALEO Rakovník, PQ26 Climatronic, servis u zákazníka
+2022;RT22002;RT22002_VALEO Gen61;VALEO;VALEO;Gen61;Programátorské práce - VALEO, RLT Gen61 podpora
+2022;RT22003;RT22003_NC LINE;NC LINE;NC LINE;;Programátorské práce - Programování Siemens PLC pro svařovací přípravek
+2022;RT22004;RT22004_PKS Press;PKS;PKS;Press;Programátorské práce - Programování Siemens PLC pro lisovací stroj
+2022;RT22005;RT22005_ESTELAR RRD5v2;ESTELAR;ESTELAR;RRD5v2;
+2022;RT22006;RT22006_ELDAM Cam;ELDAM;ELDAM;Cam;Úprava stávajícího kamerového systému pro průmyslovou kontrolu.
+2022;RT22007;RT22007_KDK;KDK;KDK;;Elektroprojekt, rozvaděč a PLC software pro systém tiskárny a skeneru čárových kódů.
+2022;RT22008;RT22008_VALEO Gen61;VALEO;VALEO;Gen61;Programátorské práce - VALEO, RLT Gen61 podpora
+2022;RT22009;RT22009_ESTELAR CL700v2;ESTELAR;ESTELAR;CL700v2;
+2022;RT22010;RT22010_VALEO ReverseCur;VALEO;VALEO;ReverseCur;Programátorské práce - VALEO Rakovník, RLT linka, měření revers. proudu
+2022;RT22011;RT22011_ELCOM TwinCAT;ELCOM;ELCOM;TwinCAT;Programátorské práce - ELCOM Ostrava, programování přípravku, TwinCAT
+2022;RT22012;RT22012_ELCOM Purem;ELCOM;PUREM;;Programátorské práce - PLC programování stanice pro zakládání, Siemens TIA Portal, PUREM Rakovník
+2022;RT22013;RT22013_ELCOM Purem BMW;ELCOM;PUREM;BMW;Programátorské práce - PLC programování stanice pro BMW, Siemens TIA Portal, PUREM Rakovník
+2022;RT22014;RT22014_ELCOM Pulzacka2;ELCOM;ELCOM;Pulzacka2;Programátorské práce - ELCOM Ostrava, programování přípravku (Pulzačka balík č.2)
+2022;RT22015;RT22015_ELCOM Purem ETS;ELCOM;PUREM;ETS;Programátorské práce - PLC programování stanice pro BMW, integrace ETS, PUREM Rakovník
+2022;RT22016;RT22016_ESTELAR AR420;ESTELAR;ESTELAR;AR420;
+2022;RT22017;RT22017_ESTELAR;ESTELAR;ESTELAR;;
+2022;RT22018;RT22018_ELCOM Purem BMW-2;ELCOM;PUREM;BMW-2;Programátorské práce - PLC programování stanice pro BMW-2, Siemens TIA Portal, PUREM Rakovník
+2022;RT22019;RT22019_ELCOM Magna;ELCOM;ELCOM;Magna;Programátorské práce - PLC programování stanice, Siemens TIA Portal, MAGNA Poslko
+2022;RT22020;RT22020_Valeo AENTRY;VALEO;VALEO;AENTRY;
+2021;RT21001;RT21001_KSR TestRig;KSR;KSR;TestRig;Programátorské práce - KSR Opava, softwarová aplikace pro 3x Durability tester
+2021;RT21002;RT21002_VALEO Shenzhen RLT;VALEO;VALEO;Shenzhen RLT;
+2021;RT21003;RT21003_URC Gerasim;URC;URC;Gerasim;
+2021;RT21004;RT21004_ESTELAR DH485;ESTELAR;ESTELAR;DH485;Vývoj zařízení DR485 s STM32, LwIP, UART, HTTP, webovým rozhraním a IAP.
+2021;RT21005;RT21005_ESTELAR DH485;ESTELAR;ESTELAR;DH485;Vývoj funkcí zařízení DR485 včetně MbedTLS, HTTPS, webového rozhraní a komunikace SSDP, UPnP a UDP.
+2021;RT21006;RT21006_VALEO RLT;VALEO;VALEO;RLT;Programátorské práce - VALEO, RLT úprava programu a testovací sekvence
+2021;RT21007;RT21007_KSR Engel;KSR;KSR;Engel;Programátorské práce - Engel, převod dat do databáze
+2021;RT21008;RT21008_VALEO RLT Gen61;VALEO;VALEO;RLT Gen61;Programátorské práce - VALEO Praha, RLT Gen61
+2021;RT21009;RT21009_ELDAM Battery;ELDAM;ELDAM;Battery;
+2021;RT21010;RT21010_VALEO WS110;VALEO;VALEO;WS110;Programátorské práce - VALEO Rakovník, RLT linka, sekvence WS110
+2021;RT21011;RT21011_ESTELAR AL20E;ESTELAR;ESTELAR;AL20E;Vývoj firmware, síťových služeb a webového rozhraní pro embedded zařízení.
+2021;RT21012;RT21012_KSR Arburg;KSR;KSR;Arburg;Programátorské práce - Arburg, převod dat do databáze
+2021;RT21013;RT21013_ESTELAR AL20E;ESTELAR;ESTELAR;AL20E;
+2021;RT21014;RT21014_VALEO PQ26;VALEO;VALEO;PQ26;Programátorské práce - VALEO PQ26, FlexiTester integrace testovací sekvence
+2021;RT21015;RT21015_VALEO PQ26 KMM;VALEO;VALEO;PQ26 KMM;Programátorské práce - VALEO PQ26 KMM, FlexiTester integrace testovací sekvence
+2021;RT21016;RT21016_SPEEDBOX Tester;SPEEDBOX;SPEEDBOX;Tester;Software pro koncovou kontrolu Speedbox
+2021;RT21017;RT21017_ESTELAR RRD5;ESTELAR;ESTELAR;RRD5;Vývoj firmware, síťových služeb a webového rozhraní pro embedded zařízení.
+2021;RT21018;RT21018_VALEO Warranty;VALEO;VALEO;Warranty;Programátorské práce - VALEO Warranty tester
+2021;RT21019;RT21019_VALEO Contacting;VALEO;VALEO;Contacting;Programátorské práce - VALEO Rakovník, RLT linka, úprava sekvence kontaktování
+2020;RT20001CZ;RT20001CZ_AL Mexiko;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Mexiko;Softwarový servis – AL Mexiko, Juarez
+2020;RT20002CZ;RT20002CZ_NUVIA Tiguan 32 facelift;NUVIA;MARELLI AUTOMOTIVE LIGHTING;Tiguan 32 facelift;Softwarový servis – NUVIA Třebíč + AL Jihlava, 1xEoL Tester VW Tiguan 3.2 PA
+2020;RT20003CZ;RT20003CZ_VALEO Rakovnik RLT;VALEO;VALEO;Rakovnik RLT;Programátorské práce – VALEO Rakovník, Linka RLT, nastavení a regulace světelných zdrojů
+2020;RT20004CZ;RT20004CZ_KSR Hannover;KSR;KSR;Hannover;Softwarový servis a aktualizace testovacího zařízení č. 4 pro KSR Hannover.
+2020;RT20005CZ;RT20005CZ_Sprava Zeleznic;SPRAVA ZELEZNIC;SPRAVA ZELEZNIC;;Elektroprojekt elektrokotlů a oprav elektrických zařízení ve výpravních budovách Odry a Budišov nad Budišovkou.
+2020;RT20006CZ;RT20006CZ_ELCOM PLC;ELCOM;ELCOM;PLC;Programátorské práce - Siemens PLC, rozhraní vstupu/výstupů mezi PC a PLC
+2020;RT20007CZ;RT20007CZ_AL BMW F60;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;BMW F60;Programátorské práce - AL Jihlava, BMW F60LCI, podpora u zákazníka
+2020;RT20008CZ;RT20008CZ_VEMAT Sklad;VEMAT;VEMAT;Sklad;Softwarová aplikace pro skladové hospodářství s nástavbou pro program POHODA
+2020;RT20009CZ;RT20009CZ_AL Jihlava Yeti;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava Yeti;Programátorské práce - AL Jihlava, Škoda Yeti, komunikace CAN
+2020;RT20010CZ;RT20010CZ_KSR pripravek;KSR;KSR;pripravek;Programátorské práce - KSR Opava, PLC svařovací přípravek, S7-200
+2020;RT20011CZ;RT20011CZ_VALEO Rakovnik RLT Gen6;VALEO;VALEO;Rakovnik RLT Gen6;Programátorské práce - VALEO Rakovník, úprava linky RLT pro Gen6
+2020;RT20012CZ;RT20012CZ_AL Jihlava TiguanMid;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava TiguanMid;Programátorské práce - AL Jihlava, Tiguan Mid, komunikace CAN
+2020;RT20013CZ;RT20013CZ_VALEO Praha RLT Gen6;VALEO;VALEO;Praha RLT Gen6;Programátorské práce - VALEO Praha, testovací specifikace RLT pro Gen6
+2020;RT20014CN;RT20014CN_VALEO Shenzhen RLT;VALEO;VALEO;Shenzhen RLT;Aktualizace výrobní linky RLT pro VALEO Shenzhen včetně softwaru PLC Beckhoff a PC testovacích stanic.
+2020;RT20015CZ;RT20015CZ_PME Pohoda;PME;PME;Pohoda;Vývoj softwarové nadstavby pro import a export dat ekonomického systému POHODA přes mServer a soubory Excel.
+2020;RT20016CZ;RT20016CZ_URC Gerasim;URC;URC;Gerasim;Uživatelské rozhraní modulárního generátoru radiotechnických signálů.
+2020;RT20017CZ;RT20017CZ_VALEO Servis BeckhoffPC;VALEO;VALEO;Servis BeckhoffPC;Programátorské práce - VALEO instalace BeckhoffPC, Gen61 úprava
+2020;RT20018CZ;RT20018CZ_VALEO Praha RLT Gen6;VALEO;VALEO;Praha RLT Gen6;Programátorské práce - VALEO, RLT úprava programu a testovací sekvence
+2019;RT19001CZ;RT19001CZ_NUVIA Tiguan 31 facelift;NUVIA;MARELLI AUTOMOTIVE LIGHTING;Tiguan 31 facelift;Softwarový servis – NUVIA Třebíč + AL Jihlava, 1xEoL Tester VW Tiguan 3.1 PA
+2019;RT19002CZ;RT19002CZ_NUVIA BMW F60 facelift;NUVIA;MARELLI AUTOMOTIVE LIGHTING;BMW F60 facelift;Softwarový servis – AL Jihlava, 1xEoL Tester BMW F60 facelift
+2019;RT19003CN;RT19003CN_VALEO Shenzhen GWM;VALEO;VALEO;Shenzhen GWM;Softwarové testování jednotky DMS ECU pro MMS ve VALEO Shenzhen.
+2019;RT19004CN;RT19004CN_VALEO Shenzhen Jig Nissan;VALEO;VALEO;Shenzhen Jig Nissan;Nastavení softwaru pro projekt Nissan L42P ve VALEO Shenzhen.
+2019;RT19004CN;RT19004CN_VALEO Shenzhen Nissan;VALEO;VALEO;Shenzhen Nissan;Nastavení softwaru pro projekt Nissan L42P ve VALEO Shenzhen.
+2019;RT19005CZ;RT19005CZ_VALEO RLT;VALEO;VALEO;RLT;Programátorské práce – VALEO Rakovník, aplikace pro EoL testery linky RLT
+2019;RT19006CZ;RT19006CZ_NUVIA Tiguan 22 facelift;NUVIA;MARELLI AUTOMOTIVE LIGHTING;Tiguan 22 facelift;Softwarový servis – AL Jihlava, 1xEoL Tester VW Tiguan PA – úprava na PA verzi
+2019;RT19007CN;RT19007CN_VALEO Shenzhen V362;VALEO;VALEO;Shenzhen V362;Nastavení softwaru projektu V362 pro VALEO Shenzhen.
+2019;RT19008CN;RT19008CN_VALEO Shenzhen COM2020;VALEO;VALEO;Shenzhen COM2020;Vývoj testovacího frameworku COM2020 v NI LabWindows/CVI včetně komunikační knihovny CAN pro VALEO Shenzhen.
+2019;RT19009CZ;RT19009CZ_Elektroline;ELEKTROLINE;ELEKTROLINE;;Softwarový servis - ELEKTROLINE Praha, vývoj testovací sekvence pro kolejové obvody
+2019;RT19010CZ;RT19010CZ_VALEO Zaragoza;VALEO;VALEO;Zaragoza;Softwarový servis – VALEO Zaragoza, HVAC SAVAS instalace
+2019;RT19011CZ;RT19011CZ_HYUNDAI;HYUNDAI;HYUNDAI;;Softwarový servis - HUYNDAI Nošovice, Siemens (S7-1200, CU310, KPT400)
+2019;RT19012CZ;RT19012CZ_KSR;KSR;KSR;;
+2019;RT19013CZ;RT19013CZ_AL BMW F60LCI binning;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;BMW F60LCI binning;Softwarový servis – AL Jihlava, 1xEoL Tester BMW F60LCI binning
+2019;RT19014CN;RT19014CN_VALEO Shenzhen RLT;VALEO;VALEO;Shenzhen RLT;Aktualizace výrobní linky RLT pro VALEO Shenzhen.
+2019;RT19015CZ;RT19015CZ_AL SK38;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;SK38;Softwarový servis – C.B.G Impex, Projekt SK38
+2019;RT19016CZ;RT19016CZ_AL Megan;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Megan;Programátorské práce - AL Jihlava, Renault Megan, Stepper motor řízení
+2019;RT19017CZ;RT19017CZ_KSR Nytovani;KSR;KSR;Nytovani;Programátorské práce - KSR Opava, kontrola nýtování, Siemens PLC
+2019;RT19018CZ;RT19018CZ_AL BMW G14;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;BMW G14;Programátorské práce - AL Jihlava, BMW G14/AUDI A4
+2018;RT18001CZ;RT18001CZ_Massag;MASSAG;MASSAG;;Softwarové vybavení pro linku na popisování trubek – Massag Bílovec
+2018;RT18002CZ;RT18002CZ_AL Jihlava BMW Gx;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava BMW Gx;Softwarový servis – AL Jihlava, Tester BMW G14+G20, F45, Tiguan
+2018;RT18003CZ;RT18003CZ_AL Jihlava BMW Gx;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava BMW Gx;Softwarový servis – AL Jihlava, Tester BMW G14+G20, mustry + kontrola štítků
+2018;RT18004CZ;RT18004CZ_AL Jihlava Audi A4;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava Audi A4;Softwarový servis – AL Jihlava/NUVIA Třebíč, Testery Audi A4 (3+1 stroj)
+2018;RT18005CZ;RT18005CZ_AL Jihlava BMW G14;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava BMW G14;Softwarový servis – AL Jihlava, Tester BMW G14+G20, iStep420, kontrola štítků
+2018;RT18006CZ;RT18006CZ_NUVIA Tiguan;NUVIA;MARELLI AUTOMOTIVE LIGHTING;Tiguan;
+2018;RT18007CZ;RT18007CZ_AL Jihlava BMW G14;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava BMW G14;Softwarový servis – AL Jihlava, Tester BMW G14+G20, kontrola štítků 2stroje
+2018;RT18008CZ;RT18008CZ_AL Jihlava Tiguan;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava Tiguan;Softwarový servis – AL Jihlava, Tester Tiguan, Mid+Basis
+2018;RT18009CN;RT18009CN_VALEO Shenzhen T9;VALEO;VALEO;Shenzhen T9;Softwarový servis testeru T9 a stanice Firewall pro VALEO Shenzhen.
+2018;RT18010CZ;RT18010CZ_AL Jihlava Tiguan HAL;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava Tiguan HAL;Softwarový servis – AL Jihlava, 1xEoL Tester Tiguan BASIS, MID
+2018;RT18011CZ;RT18011CZ_NUVIA Tiguan facelift;NUVIA;MARELLI AUTOMOTIVE LIGHTING;Tiguan facelift;Softwarový servis – NUVIA Třebíč + AL Jihlava, 1xEoL Tester Tiguan BASIS, MID
+2018;RT18012CZ;RT18012CZ_VALEO Nanjing SAVAS;VALEO;VALEO;Nanjing SAVAS;Softwarový servis systému SAVAS pro VALEO Nanjing a licencování EoL testeru T9 ve VALEO Shenzhen.
+2018;RT18013CZ;RT18013CZ_Huyndai;HUYNDAI;HUYNDAI;;Konfigurace FESTO os - Hyundai Leakage tester (4dny)
+2018;RT18014CZ;RT18014CZ_KSR Hanover;KSR;KSR;Hanover;"Softwarová aplikace pro tester ""Durability test rig"""
+2018;RT18015CZ;RT18015CZ_IMOS;IMOS;IMOS;;Úprava projektové dokumentace pro OC Rotunda Havířov
+2018;RT18016CZ;RT18016CZ_KSR Opava;KSR;KSR;Opava;KSR - Kontrola svaru matky na plech
+2018;RT18017CZ;RT18017CZ_AL Jihlava Audi A4 MxB;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava Audi A4 MxB;Softwarový servis – AL Jihlava, 2xTester Audi A4 MxB, testování MxB LED polohy
+2018;RT18018CZ;RT18018CZ_VALEO Nanjing2 SAVAS;VALEO;VALEO;Nanjing2 SAVAS;Softwarový servis systému SAVAS pro VALEO Nanjing.
+2018;RT18019CZ;RT18019CZ_AL Jihlava BMW Gx;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava BMW Gx;Softwarový servis – AL Jihlava, BMW G14/G20 vzdálená podpora
+2018;RT18020CZ;RT18020CZ_AL Jihlava BMW Gx;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava BMW Gx;AL Jihlava, podpora pro linky BMW G14/G20
+2018;RT18021CZ;RT18021CZ_Valeo X90PHII;VALEO;VALEO;X90PHII;Elektroprojekt, PLC řízení a PC testovací sekvence EoL testeru X90PHII pro VALEO Rakovník.
+2018;RT18022CZ;RT18022CZ_KSR Opava Servis;KSR;KSR;Opava Servis;KSR - Softwarová podpora pro sběr dat
+2018;RT18023CZ;RT18023CZ_KES;KES;KES;;KES - vyhodnocení zalití vizuální inspekcí
+2018;RT18024CZ;RT18024CZ_AL Jihlava Audi A4 Mustr;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava Audi A4 Mustr;Softwarový servis – AL Jihlava, AUDIA A4
+2018;RT18025CZ;RT18025CZ_KSR Hanover;KSR;KSR;Hanover;"Analýza programové aplikace pro ""Durability test rig"""
+2018;RT18026CN;RT18026CN_VALEO Shenzhen C519;VALEO;VALEO;Shenzhen C519;Aktualizace softwaru přípravku C519 pro VALEO Shenzhen.
+2018;RT18027CZ;RT18027CZ_Huyndai Inspekce;HUYNDAI;HUYNDAI;Inspekce;Softwarová aplikace pro nasnímání převodovky na vstupu do skladu – Hyundai
+2017;RT17001CN;RT17001CN_VALEO Shenzhen Jig C490;VALEO;VALEO;Shenzhen Jig C490;Nastavení softwaru a servisní podpora nového přípravku C490 pro VALEO Shenzhen.
+2017;RT17002CN;RT17002CN_VALEO Shenzhen Jig C519;VALEO;VALEO;Shenzhen Jig C519;Nastavení softwaru nového přípravku Ford C519 pro VALEO Shenzhen.
+2017;RT17003CZ;RT17003CZ_ELCOM Ostrava BMW Gx;ELCOM;ELCOM;Ostrava BMW Gx;
+2017;RT17004CZ;RT17004CZ_NUVIA Trebic BMW Gx;NUVIA;MARELLI AUTOMOTIVE LIGHTING;Trebic BMW Gx;
+2017;RT17005CZ;RT17005CZ_VALEO Qingdao  SAVAS;VALEO;VALEO;Qingdao  SAVAS;Softwarový servis – SAVAS Valeo Qingdao 4 dny
+2017;RT17006CZ;RT17006CZ_NUVIA Trebic BMW Gx;NUVIA;MARELLI AUTOMOTIVE LIGHTING;Trebic BMW Gx;Softwarový servis – NUVIA Třebíč, Projekt BMW G14, G2x
+2017;RT17007CZ;RT17007CZ_VALEO AEntry;VALEO;VALEO;AEntry;
+2017;RT17008CN;RT17008CN_ELCOM CN Services;ELCOM;ELCOM;CN Services;Vzdálená softwarová podpora.
+2017;RT17009CZ;RT17009CZ_NUVIA Trebic BMW Gx;NUVIA;MARELLI AUTOMOTIVE LIGHTING;Trebic BMW Gx;Softwarový servis – NUVIA Třebíč, Tester BMW G14+G20
+2017;RT17010CZ;RT17010CZ_CONTINENTAL Trutnov;CONTINENTAL;CONTINENTAL;Trutnov;Softwarový servis – CONTINENTAL Trutnov, Tester čerpadel
+2017;RT17011CZ;RT17011CZ_AL Jihlava BMW Gx;MARELLI AUTOMOTIVE LIGHTING;MARELLI AUTOMOTIVE LIGHTING;Jihlava BMW Gx;Softwarový servis – AL Jihlava, Tester BMW G14+G20
+2017;RT17012CN;RT17012CN_VALEO Shenzhen Tester C490;VALEO;VALEO;Shenzhen Tester C490;Nastavení softwaru a servisní podpora testeru C490 pro VALEO Shenzhen.
+2017;RT17013CZ;RT17013CZ_VALEO Rakovnik P2D3;VALEO;VALEO;Rakovnik P2D3;Softwarový servis – VALEO Rakovník, EoL Tester P2+D3
+2017;RT17014CZ;RT17014CZ_PF Plasty Baumer;PF PLASTY;PF PLASTY;Baumer;Softwarový servis – PF Plasty, Nastaveni kamerové inspekce Baumer

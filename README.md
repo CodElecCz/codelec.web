@@ -41,6 +41,20 @@ The `src/content/` directory contains "collections" of related Markdown and MDX 
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+## Editing references
+
+Edit [refereces.csv](src/data/refereces.csv) in a spreadsheet or text editor. Save it as UTF-8 CSV with a semicolon (`;`) delimiter and keep the header row. Both reference pages read this file when the site builds.
+
+- Set `show_cs` and `show_en` to `1` to publish a language, or `0` to hide it. Published languages require their `client`, `title`, and `description` columns. Use `eol`, `plc`, or `software` for `category`.
+- Separate multiple customers, technologies, or badges with ` | `. The `customer`, `end_customer`, and `commissioned_by` fields are data only; the `client_cs` and `client_en` fields are what the pages display.
+- [offers.csv](src/data/offers.csv) contains one row per accounting folder and is not read by the website. If the folder specifies no separate end customer, it is the same as the customer. To publish an offer, add a reference row and enter its details and visibility there. Only one reference with the same `reference_group` may be published per language.
+- Offer `project_description` values are editable Czech descriptions, based on matching offer PDFs or references where available. They are not updated automatically; some offers have no description.
+- [customers.csv](src/data/customers.csv) is an editable snapshot of distinct customer and end-customer names from the offers. Its `direct_customer` and `end_customer` columns indicate each role with `1` or `0`; it is not updated automatically.
+- Folder-derived names are provisional, not proof that a project was completed.
+- The Czech 2014–2016 Magneti Marelli card is consolidated; the corresponding English-only rows retain the existing individual cards.
+
+The CSV files contain customer and offer metadata. They are not included in the generated site, but they **will be visible in the repository** if committed to a public repository.
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:

@@ -1,0 +1,129 @@
+import { parse } from 'csv-parse/sync';
+
+type Locale = 'cs' | 'en';
+type Category = 'eol' | 'plc' | 'software';
+
+type ReferenceRow = {
+	year: string;
+	customer: string;
+	end_customer: string;
+	commissioned_by: string;
+	reference_group: string;
+	show_cs: string;
+	show_en: string;
+	client_cs: string;
+	client_en: string;
+	title_cs: string;
+	title_en: string;
+	description_cs: string;
+	description_en: string;
+	technologies_cs: string;
+	technologies_en: string;
+	category: string;
+	badges_cs: string;
+	badges_en: string;
+};
+
+type Project = {
+	year: string;
+	client: string;
+	title: string;
+	description: string;
+	technologies: string[];
+	category: Category;
+	badges?: string[];
+};
+
+type ReferenceGroup = {
+	id: string;
+	label: string;
+	context: string;
+	projects: Project[];
+};
+
+const columns: (keyof ReferenceRow)[] = [
+	'year', 'customer', 'end_customer', 'commissioned_by', 'reference_group', 'show_cs', 'show_en',
+	'client_cs', 'client_en', 'title_cs', 'title_en', 'description_cs', 'description_en',
+	'technologies_cs', 'technologies_en', 'category', 'badges_cs', 'badges_en',
+];
+
+function isCategory(value: string): value is Category {
+	return value === 'eol' || value === 'plc' || value === 'software';
+}
+
+function list(value: string): string[] {
+	return value ? value.split('|').map((item) => item.trim()).filter(Boolean) : [];
+}
+
+export function getReferenceGroups(csv: string, locale: Locale): ReferenceGroup[] {
+	const rows: ReferenceRow[] = parse(csv, {
+		bom: true,
+		delimiter: ';',
+		skip_empty_lines: true,
+		columns(headers: string[]) {
+			if (new Set(headers).size !== headers.length || columns.some((column) => !headers.includes(column))) {
+				throw new Error('Reference CSV has duplicate or missing columns.');
+			}
+			return headers;
+		},
+	});
+	const groups = new Map<string, ReferenceGroup>();
+	const publishedGroups = new Set<string>();
+
+	for (const [index, row] of rows.entries()) {
+		const location = `Reference CSV record ${index + 2}`;
+		if (!/^\d{4}$/.test(row.year) && row.year !== '2014–2016') {
+			throw new Error(`${location}: invalid year.`);
+		}
+		if (!['0', '1'].includes(row.show_cs) || !['0', '1'].includes(row.show_en)) {
+			throw new Error(`${location}: show_cs and show_en must be 0 or 1.`);
+		}
+		if (!isCategory(row.category)) {
+			throw new Error(`${location}: invalid category.`);
+		}
+		if (row[`show_${locale}`] === '0') continue;
+		if (row.reference_group) {
+			if (publishedGroups.has(row.reference_group)) {
+				throw new Error(`${location}: reference group ${row.reference_group} has multiple published ${locale} rows.`);
+			}
+			publishedGroups.add(row.reference_group);
+		}
+
+		const client = row[`client_${locale}`];
+		const title = row[`title_${locale}`];
+		const description = row[`description_${locale}`];
+		if (!client.trim() || !title.trim() || !description.trim()) {
+			throw new Error(`${location}: published ${locale} references need a client, title and description.`);
+		}
+
+		const historical = /^201[456]$/.test(row.year) || row.year === '2014–2016';
+		const id = historical ? '2014-2016' : row.year;
+		let group = groups.get(id);
+		if (!group) {
+			group = {
+				id,
+				label: historical ? '2014–2016' : row.year,
+				context: historical
+					? locale === 'cs'
+						? 'Ve spolupráci se Suzhou Elcom Automation Technology Co., Ltd.'
+						: 'In cooperation with Suzhou Elcom Automation Technology Co., Ltd.'
+					: locale === 'cs' ? 'OSVČ' : 'Independent contractor',
+				projects: [],
+			};
+			groups.set(id, group);
+		}
+
+		const badges = list(row[`badges_${locale}`]);
+		group.projects.push({
+			year: row.year,
+			client,
+			title,
+			description,
+			technologies: list(row[`technologies_${locale}`]),
+			category: row.category,
+			badges: badges.length ? badges : undefined,
+		});
+	}
+
+	return [...groups.values()].sort((a, b) => Number.parseInt(b.id, 10) - Number.parseInt(a.id, 10));
+}
