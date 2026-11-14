@@ -46,6 +46,8 @@ Any static assets, like images, can be placed in the `public/` directory.
 Edit [references.csv](src/data/references.csv) in a spreadsheet or text editor. Save it as UTF-8 CSV with a semicolon (`;`) delimiter and keep the header row. Both reference pages read this file when the site builds.
 
 - Set `show_cs` and `show_en` to `1` to publish a language, or `0` to hide it. Published languages require a customer and their localized `title` and `description`. Use `eol`, `plc`, or `software` for `category`.
+- Both reference pages accept `?oblast=eol`, `?oblast=pc-embedded`, or `?oblast=plc` to select the corresponding filter on load. The `pc-embedded` parameter selects references with the `software` category.
+- Use `starší` in `year` for a reference spanning the older years; it appears in the localized older-reference group alongside entries from 2014–2016.
 - Separate multiple technologies or badges with ` | `. The pages display `end_customer`, or `customer` if no separate end customer is known. The `commissioned_by` field is data only.
 - When the displayed customer matches a `name` in [customers.csv](src/data/customers.csv), its `full_name` appears as a hover hint and its `website`, if present, is linked. Names without a match remain plain text; website URLs must use HTTP or HTTPS.
 - The combined file contains one row per offer plus website references without a matching offer. Offers that are not verified references have both visibility fields set to `0`. To publish one, fill in the required public fields and set the appropriate visibility field to `1`. Only one reference with the same `reference_group` may be published per language.

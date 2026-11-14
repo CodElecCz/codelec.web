@@ -54,8 +54,8 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 							{[
 								{ id: 'all', label: 'Vše' },
 								{ id: 'eol', label: 'EoL Testery' },
-								{ id: 'plc', label: 'PLC & Automatizace' },
 								{ id: 'software', label: 'PC Aplikace & Embedded' },
+								{ id: 'plc', label: 'PLC & Automatizace' },
 							].map((filter, index) => (
 								<button
 									type="button"
@@ -164,48 +164,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 		</main>
 		<Footer />
 		<script>
-			const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-project-filter]');
-			const projectCards = document.querySelectorAll<HTMLElement>('[data-project-card]');
-			const yearSections = document.querySelectorAll<HTMLElement>('[data-project-year]');
-			const filterStatus = document.querySelector<HTMLElement>('#filter-status');
-
-			if (filterButtons.length === 0 || projectCards.length === 0 || yearSections.length === 0 || !filterStatus) {
-				throw new Error('Project filters could not be initialized.');
-			}
-
-			filterButtons.forEach((button) => {
-				button.addEventListener('click', () => {
-					const selectedCategory = button.dataset.projectFilter;
-					if (!selectedCategory) throw new Error('A project filter is missing its category.');
-
-					filterButtons.forEach((filterButton) => {
-						filterButton.setAttribute(
-							'aria-pressed',
-							filterButton === button ? 'true' : 'false',
-						);
-					});
-
-					projectCards.forEach((card) => {
-						card.hidden =
-							selectedCategory !== 'all' && card.dataset.projectCategory !== selectedCategory;
-					});
-
-					yearSections.forEach((section) => {
-						const cards = section.querySelectorAll<HTMLElement>('[data-project-card]');
-						const visibleCount = Array.from(cards).filter((card) => !card.hidden).length;
-						section.hidden = visibleCount === 0;
-						const count = section.querySelector<HTMLElement>('[data-project-count]');
-						if (count) count.textContent = `${String(visibleCount).padStart(2, '0')} KARET`;
-						const yearJump = document.querySelector<HTMLElement>(
-							`[data-year-jump="${section.id}"]`,
-						);
-						if (yearJump) yearJump.hidden = visibleCount === 0;
-					});
-
-					const visibleTotal = Array.from(projectCards).filter((card) => !card.hidden).length;
-					filterStatus.textContent = `Zobrazeno ${visibleTotal} z ${projectCards.length} referenčních karet.`;
-				});
-			});
+			import '../scripts/reference-filters';
 		</script>
 	</body>
 </html>

@@ -43,9 +43,35 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 						<span>China</span>
 						<span>{totalProjects} portfolio entries</span>
 					</div>
+					<div class="mb-7">
+						<p class="mb-3 font-mono text-xs font-semibold tracking-[0.18em] text-slate-500">
+							FILTER BY AREA
+						</p>
+						<div role="group" aria-label="Filter references by area" class="flex flex-wrap gap-2">
+							{[
+								{ id: 'all', label: 'All' },
+								{ id: 'eol', label: 'EoL Testers' },
+								{ id: 'software', label: 'PC Applications & Embedded' },
+								{ id: 'plc', label: 'PLC & Automation' },
+							].map((filter, index) => (
+								<button
+									type="button"
+									data-project-filter={filter.id}
+									aria-pressed={index === 0 ? 'true' : 'false'}
+									class="rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 font-mono text-xs font-semibold text-slate-300 transition hover:border-cyan-400/60 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 aria-pressed:border-cyan-400 aria-pressed:bg-cyan-400 aria-pressed:text-slate-950 sm:text-sm"
+								>
+									{filter.label}
+								</button>
+							))}
+						</div>
+						<p id="filter-status" class="mb-0 mt-3 text-xs text-slate-500" aria-live="polite">
+							Showing {totalProjects} portfolio entries.
+						</p>
+					</div>
 					<nav aria-label="Jump to year" class="flex flex-wrap gap-2">
 						{groups.map((group) => (
 							<a
+								data-year-jump={group.id}
 								class="rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 font-mono text-xs text-slate-300 no-underline transition hover:border-cyan-400/60 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 sm:text-sm"
 								href={`#${group.id}`}
 							>
@@ -58,7 +84,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 
 			<div class="mx-auto max-w-7xl space-y-16 px-5 py-14 sm:px-8 sm:py-20">
 				{groups.map((group) => (
-					<section id={group.id} aria-labelledby={`${group.id}-title`} class="scroll-mt-28">
+					<section id={group.id} data-project-year={group.id} aria-labelledby={`${group.id}-title`} class="scroll-mt-28">
 						<div class="mb-6 flex flex-col gap-3 border-b border-slate-800 pb-5 sm:flex-row sm:items-end sm:justify-between">
 							<div>
 								<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">
@@ -68,14 +94,14 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 									{group.label}
 								</h2>
 							</div>
-							<p class="m-0 font-mono text-xs text-slate-500">
+							<p data-project-count class="m-0 font-mono text-xs text-slate-500">
 								{String(group.projects.length).padStart(2, '0')} ENTRIES
 							</p>
 						</div>
 
 						<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
 							{group.projects.map((project, index) => (
-								<article class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
+								<article data-project-card data-project-category={project.category} class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
 									<div class="mb-5 flex items-center justify-between gap-3">
 										<p class="m-0 min-w-0 break-words text-sm font-semibold text-cyan-200">
 											{project.clientWebsite ? (
@@ -124,5 +150,8 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 			</section>
 		</main>
 		<Footer />
+		<script>
+			import '../../scripts/reference-filters';
+		</script>
 	</body>
 </html>

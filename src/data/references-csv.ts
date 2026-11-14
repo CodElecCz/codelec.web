@@ -102,7 +102,8 @@ export function getReferenceGroups(csv: string, locale: Locale, customerCsv: str
 
 	for (const [index, row] of rows.entries()) {
 		const location = `Reference CSV record ${index + 2}`;
-		if (!/^\d{4}$/.test(row.year) && row.year !== '2014–2016') {
+		const older = row.year === 'starší' || row.year === '2014–2016';
+		if (!/^\d{4}$/.test(row.year) && !older) {
 			throw new Error(`${location}: invalid year.`);
 		}
 		if (!['0', '1'].includes(row.show_cs) || !['0', '1'].includes(row.show_en)) {
@@ -126,13 +127,14 @@ export function getReferenceGroups(csv: string, locale: Locale, customerCsv: str
 			throw new Error(`${location}: published ${locale} references need a client, title and description.`);
 		}
 
-		const historical = /^201[456]$/.test(row.year) || row.year === '2014–2016';
+		const historical = /^201[456]$/.test(row.year) || older;
+		const olderLabel = locale === 'cs' ? 'Starší' : 'Earlier';
 		const id = historical ? '2014-2016' : row.year;
 		let group = groups.get(id);
 		if (!group) {
 			group = {
 				id,
-				label: historical ? '2014–2016' : row.year,
+				label: historical ? olderLabel : row.year,
 				context: historical
 					? locale === 'cs'
 						? 'Ve spolupráci se Suzhou Elcom Automation Technology Co., Ltd.'
@@ -146,7 +148,7 @@ export function getReferenceGroups(csv: string, locale: Locale, customerCsv: str
 		const badges = list(row[`badges_${locale}`]);
 		const customer = customersByName.get(client.trim().toLowerCase());
 		group.projects.push({
-			year: row.year,
+			year: older ? olderLabel : row.year,
 			client,
 			clientFullName: customer?.full_name.trim() || undefined,
 			clientWebsite: customer?.website.trim() || undefined,
