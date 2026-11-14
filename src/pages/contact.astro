@@ -1,0 +1,273 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const email = 'Radomir.Turca@codelec.cz';
+const phone = '+420 776 287 213';
+const phoneLink = '+420776287213';
+const base = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+---
+
+<!doctype html>
+<html lang="cs">
+	<head>
+		<BaseHead
+			title={`Kontakt | ${SITE_TITLE}`}
+			description="Kontaktujte Ing. Radomíra Turču, Ph.D. pro spolupráci, konzultaci nebo cenovou nabídku v oblasti programování a elektro projekce."
+		/>
+	</head>
+	<body class="min-h-screen bg-slate-950 text-base leading-relaxed text-slate-200">
+		<Header />
+		<main class="m-0 w-full max-w-none p-0">
+			<section class="relative isolate overflow-hidden border-b border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+				<div aria-hidden="true" class="pointer-events-none absolute -right-36 -top-40 size-[30rem] rounded-full border border-cyan-400/10"></div>
+				<div aria-hidden="true" class="pointer-events-none absolute -right-16 -top-20 size-[20rem] rounded-full border border-cyan-400/10"></div>
+				<div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20">
+					<p class="mb-4 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-cyan-300 sm:text-sm">
+						<span class="h-px w-8 bg-cyan-400"></span>
+						CODELEC · PŘÍMÝ KONTAKT
+					</p>
+					<h1 class="mb-5 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+						Kontakt
+					</h1>
+					<p class="m-0 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
+						V případě Vašeho zájmu o spolupráci, konzultaci nebo cenovou nabídku mě neváhejte
+						kontaktovat.
+					</p>
+				</div>
+			</section>
+
+			<section class="bg-slate-950">
+				<div class="mx-auto grid max-w-7xl gap-6 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
+					<div class="space-y-6">
+						<section aria-labelledby="direct-contact-title" class="rounded-xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8">
+							<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">PŘÍMÝ KONTAKT</p>
+							<h2 id="direct-contact-title" class="mb-6 text-2xl font-bold text-white">
+								Ing. Radomír Turča, Ph.D.
+							</h2>
+
+							<dl class="m-0 divide-y divide-slate-800">
+								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
+									<dt class="text-sm text-slate-500">Značka</dt>
+									<dd class="m-0 text-sm font-medium text-slate-200">
+										CodElec — Programování &amp; elektro projekce
+									</dd>
+								</div>
+								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
+									<dt class="text-sm text-slate-500">E-mail</dt>
+									<dd class="m-0 flex flex-wrap items-center gap-3">
+										<a
+											class="break-all text-sm font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
+											href={`mailto:${email}`}
+										>
+											{email}
+										</a>
+										<button
+											id="copy-email"
+											class="rounded border border-slate-700 px-2.5 py-1 font-mono text-xs text-slate-300 transition hover:border-cyan-400/50 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+											type="button"
+										>
+											Kopírovat
+										</button>
+									</dd>
+								</div>
+								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
+									<dt class="text-sm text-slate-500">Telefon</dt>
+									<dd class="m-0">
+										<a
+											class="text-sm font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
+											href={`tel:${phoneLink}`}
+										>
+											{phone}
+										</a>
+									</dd>
+								</div>
+								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
+									<dt class="text-sm text-slate-500">IČO</dt>
+									<dd class="m-0 text-sm text-slate-200">06109918 <span class="text-slate-500">(OSVČ)</span></dd>
+								</div>
+								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
+									<dt class="text-sm text-slate-500">GitHub</dt>
+									<dd class="m-0">
+										<a
+											class="text-sm font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
+											href="https://github.com"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											https://github.com
+										</a>
+									</dd>
+								</div>
+							</dl>
+							<p id="copy-status" class="mb-0 mt-3 min-h-5 text-xs text-slate-400" aria-live="polite"></p>
+						</section>
+
+						<div class="rounded-xl border border-cyan-400/20 bg-cyan-400/5 p-5">
+							<p class="m-0 text-sm leading-relaxed text-slate-300">
+								Pro urychlení odpovědi připojte k poptávce stručný popis zadání, cílové zařízení
+								a případný termín realizace.
+							</p>
+						</div>
+					</div>
+
+					<section aria-labelledby="inquiry-title" class="rounded-xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8">
+						<div class="mb-7">
+							<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">PŘIPRAVIT POPTÁVKU</p>
+							<h2 id="inquiry-title" class="mb-2 text-2xl font-bold text-white">Popište svůj projekt</h2>
+							<p class="m-0 text-sm text-slate-400">
+								Po odeslání se otevře Váš e-mailový klient s připravenou zprávou.
+							</p>
+						</div>
+
+						<form id="project-inquiry" data-recipient={email} class="space-y-5">
+							<!-- For Web3Forms later, place its access_key hidden field here. -->
+							<div class="grid gap-5 sm:grid-cols-2">
+								<div>
+									<label class="mb-2 block text-sm font-medium text-slate-300" for="name">
+										Jméno / Firma <span class="text-cyan-300">*</span>
+									</label>
+									<input
+										class="w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+										id="name"
+										name="name"
+										type="text"
+										autocomplete="name"
+										required
+									/>
+								</div>
+								<div>
+									<label class="mb-2 block text-sm font-medium text-slate-300" for="email">
+										E-mail <span class="text-cyan-300">*</span>
+									</label>
+									<input
+										class="w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+										id="email"
+										name="email"
+										type="email"
+										autocomplete="email"
+										required
+									/>
+								</div>
+							</div>
+
+							<div class="grid gap-5 sm:grid-cols-2">
+								<div>
+									<label class="mb-2 block text-sm font-medium text-slate-300" for="phone">
+										Telefon <span class="font-normal text-slate-500">(volitelné)</span>
+									</label>
+									<input
+										class="w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+										id="phone"
+										name="phone"
+										type="tel"
+										autocomplete="tel"
+									/>
+								</div>
+								<div>
+									<label class="mb-2 block text-sm font-medium text-slate-300" for="project-area">
+										Oblast projektu <span class="text-cyan-300">*</span>
+									</label>
+									<select
+										class="w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-3 text-sm text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+										id="project-area"
+										name="project-area"
+										required
+									>
+										<option value="" disabled selected>Vyberte oblast</option>
+										<option>PC aplikace / LabVIEW</option>
+										<option>Mikrokontroléry STM32</option>
+										<option>PLC automatizace</option>
+										<option>Diagnostika ECU / CAN / LIN</option>
+										<option>Kamerové systémy Basler</option>
+										<option>Jiné</option>
+									</select>
+								</div>
+							</div>
+
+							<div>
+								<label class="mb-2 block text-sm font-medium text-slate-300" for="description">
+									Popis zadání <span class="text-cyan-300">*</span>
+								</label>
+								<textarea
+									class="min-h-36 w-full resize-y rounded-md border border-slate-700 bg-slate-950 px-3.5 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+									id="description"
+									name="description"
+									rows="5"
+									required
+								></textarea>
+							</div>
+
+							<button
+								class="inline-flex items-center justify-center rounded-md bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+								type="submit"
+							>
+								Připravit e-mail
+								<span aria-hidden="true" class="ml-2">→</span>
+							</button>
+							<p id="form-status" class="m-0 text-xs text-slate-400" aria-live="polite"></p>
+						</form>
+					</section>
+				</div>
+			</section>
+		</main>
+		<Footer />
+
+		<script>
+			const copyButton = document.querySelector<HTMLButtonElement>('#copy-email');
+			const copyStatus = document.querySelector<HTMLElement>('#copy-status');
+			const inquiryForm = document.querySelector<HTMLFormElement>('#project-inquiry');
+			const formStatus = document.querySelector<HTMLElement>('#form-status');
+			const contactEmail = inquiryForm?.dataset.recipient;
+
+			if (!contactEmail) throw new Error('Kontaktní e-mail nebyl na stránce nalezen.');
+
+			copyButton?.addEventListener('click', async () => {
+				if (!navigator.clipboard) {
+					if (copyStatus) copyStatus.textContent = 'Kopírování není dostupné. E-mail můžete zkopírovat ručně.';
+					return;
+				}
+
+				try {
+					await navigator.clipboard.writeText(contactEmail);
+					if (copyStatus) copyStatus.textContent = 'E-mail byl zkopírován do schránky.';
+				} catch (error) {
+					console.error('Nepodařilo se zkopírovat kontaktní e-mail.', error);
+					if (copyStatus) copyStatus.textContent = 'Kopírování se nezdařilo. E-mail můžete označit a zkopírovat ručně.';
+				}
+			});
+
+			inquiryForm?.addEventListener('submit', (event) => {
+				event.preventDefault();
+
+				if (!inquiryForm.reportValidity()) return;
+
+				const formData = new FormData(inquiryForm);
+				const name = String(formData.get('name') ?? '');
+				const senderEmail = String(formData.get('email') ?? '');
+				const senderPhone = String(formData.get('phone') ?? '');
+				const projectArea = String(formData.get('project-area') ?? '');
+				const description = String(formData.get('description') ?? '');
+				const subject = `Poptávka od ${name}`;
+				const body = [
+					'Poptávka projektu',
+					'',
+					`Jméno / Firma: ${name}`,
+					`E-mail: ${senderEmail}`,
+					`Telefon: ${senderPhone || 'neuveden'}`,
+					`Oblast projektu: ${projectArea}`,
+					'',
+					'Popis zadání:',
+					description,
+				].join('\n');
+
+				if (formStatus) formStatus.textContent = 'Otevírám e-mailový klient…';
+				window.location.href = `mailto:${contactEmail}?${new URLSearchParams({ subject, body }).toString()}`;
+			});
+		</script>
+	</body>
+</html>

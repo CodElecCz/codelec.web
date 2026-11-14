@@ -1,0 +1,435 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+type Project = {
+	year: string;
+	client: string;
+	title: string;
+	description: string;
+	technologies: string[];
+};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+
+const groups: { id: string; label: string; context: string; projects: Project[] }[] = [
+	{
+		id: '2021',
+		label: '2021',
+		context: 'OSVČ',
+		projects: [
+			{
+				year: '2021',
+				client: 'VALEO · Rakovník',
+				title: 'EoL tester klimatizačního panelu PQ26',
+				description:
+					'Integrace projektu PQ26 do koncového testeru pro testování panelu řízení klimatizace.',
+				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
+			},
+			{
+				year: '2021',
+				client: 'KSR Industrial · Opava',
+				title: 'Sběr dat ze strojů Engel a Arburg',
+				description: 'Vývoj aplikace pro sběr a ukládání výrobních dat z lisovacích strojů.',
+				technologies: ['Qt', 'C++', 'MS SQL'],
+			},
+			{
+				year: '2021',
+				client: 'KSR Industrial · Opava',
+				title: 'Laboratorní tester automobilových pedálů',
+				description:
+					'Testovací aplikace a řídicí logika pro laboratorní pracoviště včetně parametrizace terminálu VTEM.',
+				technologies: ['Testovací aplikace', 'PLC FESTO', 'CODESYS', 'VTEM'],
+			},
+		],
+	},
+	{
+		id: '2020',
+		label: '2020',
+		context: 'OSVČ',
+		projects: [
+			{
+				year: '2020',
+				client: 'Estelar s.r.o.',
+				title: 'STM32 aplikace a převodník UART–Ethernet',
+				description:
+					'Vývoj firmware pro mikrokontrolér STM32 a síťových služeb pro převodník UART na Ethernet.',
+				technologies: ['STM32 CubeIDE', 'C/C++', 'RTOS', 'LwIP', 'MbedTLS', 'HTTP/HTTPS', 'REST'],
+			},
+			{
+				year: '2020',
+				client: 'URC Systems s.r.o.',
+				title: 'Front-end aplikace GERASIM',
+				description:
+					'Uživatelské rozhraní modulárního generátoru radiotechnických signálů.',
+				technologies: ['Qt', 'C++'],
+			},
+			{
+				year: '2020',
+				client: 'KSR Industrial · Opava',
+				title: 'Svařovací přípravek',
+				description: 'Programování řídicího systému svařovacího přípravku.',
+				technologies: ['PLC Siemens S7-200'],
+			},
+			{
+				year: '2020',
+				client: 'Automotive Lighting · Jihlava',
+				title: 'EoL tester světlometů VW Tiguan',
+				description:
+					'Nasvěcování a koncové seřízení světlometů; parametrizace aplikace pro kontrolu světelných funkcí a mechanického ustavení.',
+				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+			},
+			{
+				year: '2020',
+				client: 'VALEO · Rakovník',
+				title: 'EoL tester dešťového snímače Gen61',
+				description:
+					'Vývoj testovací aplikace a sekvence pro ověření dešťového snímače v koncovém testeru.',
+				technologies: ['NI TestStand', 'LIN', 'NI-XNET'],
+			},
+		],
+	},
+	{
+		id: '2019',
+		label: '2019',
+		context: 'OSVČ',
+		projects: [
+			{
+				year: '2019',
+				client: 'VALEO · Rakovník',
+				title: 'EoL tester dešťového snímače',
+				description: 'Testovací aplikace a sekvence pro kontrolu dešťového snímače.',
+				technologies: ['NI TestStand', 'LIN', 'NI-XNET'],
+			},
+			{
+				year: '2019',
+				client: 'Automotive Lighting · Jihlava',
+				title: 'EoL tester světlometů BMW F60LCI',
+				description:
+					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí a mechanického ustavení.',
+				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+			},
+			{
+				year: '2019',
+				client: 'KSR Industrial · Hannover',
+				title: 'Laboratorní tester automobilových pedálů',
+				description: 'Vývoj testovací aplikace pro laboratorní tester pedálů.',
+				technologies: ['Testovací aplikace'],
+			},
+			{
+				year: '2019',
+				client: 'VALEO Interior Controls · Shenzhen',
+				title: 'EoL tester systému DMS',
+				description:
+					'Testování systému sledování řidiče (Driver Monitoring System) v koncovém testeru.',
+				technologies: ['Testovací aplikace', 'MySQL', 'CAN', 'NI-XNET'],
+			},
+			{
+				year: '2019',
+				client: 'Automotive Lighting · Jihlava',
+				title: 'EoL tester světlometů AUDI A4',
+				description:
+					'Nasvěcování a koncové seřízení světlometů; nastavení aplikace pro kontrolu světelných funkcí a mechanického ustavení.',
+				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+			},
+			{
+				year: '2019',
+				client: 'VALEO Interior Controls · Shenzhen',
+				title: 'EoL tester klimatizačního panelu FORD V362 MCA',
+				description:
+					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
+				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
+			},
+		],
+	},
+	{
+		id: '2018',
+		label: '2018',
+		context: 'OSVČ',
+		projects: [
+			{
+				year: '2018',
+				client: 'Hyundai Motor Czech · Nošovice',
+				title: 'Kamerový systém pro výstupní kontrolu převodovek',
+				description:
+					'Aplikace pro záznam snímků převodovek z kamer a podporu výstupní kontroly.',
+				technologies: ['Qt', 'C++', 'Průmyslové kamery'],
+			},
+			{
+				year: '2018',
+				client: 'KSR Industrial · Opava',
+				title: 'Vyhodnocení pozice svařené matky',
+				description: 'Programování PLC a vyhodnocení polohy svařované matky.',
+				technologies: ['OMC8000', 'Orbit Merret', 'MULTIPROG'],
+			},
+			{
+				year: '2018',
+				client: 'VALEO Automotive Air Conditioning · Nanjing',
+				title: 'EoL měření hluku a vibrací · MQB A0 / MQB 34',
+				description:
+					'Zprovoznění systému SAVAS pro měření hluku a vibrací na straně zákazníka.',
+				technologies: ['SAVAS', 'ELCOM a.s.', 'EoL tester'],
+			},
+			{
+				year: '2018',
+				client: 'VALEO Interior Controls · Shenzhen',
+				title: 'EoL tester klimatizačního panelu FORD C519',
+				description:
+					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
+				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
+			},
+			{
+				year: '2018',
+				client: 'Automotive Lighting · Jihlava',
+				title: 'EoL tester světlometů VW Tiguan',
+				description:
+					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí.',
+				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+			},
+			{
+				year: '2018',
+				client: 'MASSAG · Bílovec',
+				title: 'Aplikace pro potisk trubek',
+				description:
+					'PC aplikace pro popisovačku trubek s PLC návazností a uživatelským rozhraním.',
+				technologies: ['Qt', 'C++', 'PLC OMC8000', 'Orbit Merret', 'MULTIPROG'],
+			},
+		],
+	},
+	{
+		id: '2017',
+		label: '2017',
+		context: 'OSVČ',
+		projects: [
+			{
+				year: '2017',
+				client: 'VALEO · Rakovník',
+				title: 'EoL tester dotykového panelu T9',
+				description:
+					'Integrace projektu T9 do koncového testeru pro testování dotykového panelu.',
+				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'LIN', 'V-Line'],
+			},
+			{
+				year: '2017',
+				client: 'FAW & VALEO Automotive Air Conditioning · Qingdao',
+				title: 'EoL měření hluku a vibrací · MQB 34',
+				description:
+					'Zprovoznění systému SAVAS pro měření hluku a vibrací na straně zákazníka.',
+				technologies: ['SAVAS', 'ELCOM a.s.', 'EoL tester'],
+			},
+			{
+				year: '2017',
+				client: 'VALEO Interior Controls · Shenzhen',
+				title: 'EoL tester klimatizačního panelu FORD C490MCA',
+				description:
+					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
+				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
+			},
+			{
+				year: '2017',
+				client: 'Automotive Lighting · Jihlava',
+				title: 'EoL tester světlometů BMW',
+				description:
+					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí.',
+				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+			},
+		],
+	},
+	{
+		id: '2014-2016',
+		label: '2014–2016',
+		context: 'Ve spolupráci se Suzhou Elcom Automation Technology Co., Ltd.',
+		projects: [
+			{
+				year: '2016',
+				client: 'VALEO Interior Controls · Shenzhen',
+				title: 'EoL tester dotykového panelu T9HD',
+				description:
+					'Integrace projektu T9HD do koncového testeru pro testování dotykového panelu.',
+				technologies: ['C/C++', 'NI LabWindows/CVI', 'NI TestStand', 'MySQL', 'CAN', 'LIN', 'V-Line'],
+			},
+			{
+				year: '2016',
+				client: 'Magneti Marelli · Automotive Lighting · Foshan',
+				title: 'EoL tester světlometů PSA X74',
+				description:
+					'Elektro projekt stroje pro před-nasvěcování a koncové nasvěcování světlometů.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+			},
+			{
+				year: '2015',
+				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
+				title: 'EoL tester světlometů GM Chevrolet D2JBI',
+				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+			},
+			{
+				year: '2015',
+				client: 'Magneti Marelli · Automotive Lighting · Foshan',
+				title: 'EoL tester světlometů Jeep J523HL',
+				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+			},
+			{
+				year: '2015',
+				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
+				title: 'EoL tester světlometů VW SVW376',
+				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+			},
+			{
+				year: '2015',
+				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
+				title: 'EoL tester světlometů VW SVW511',
+				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+			},
+			{
+				year: '2014',
+				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
+				title: 'EoL tester světlometů VW SVW378',
+				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+			},
+			{
+				year: '2014',
+				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
+				title: 'EoL tester světlometů VW SVW253',
+				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+			},
+			{
+				year: '2014',
+				client: 'Magneti Marelli · Automotive Lighting · Xiaogan',
+				title: 'EoL tester světlometů GM Chevrolet D586C',
+				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+			},
+			{
+				year: '2014',
+				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
+				title: 'EoL tester světlometů MBC W205',
+				description: 'Asistence při přejímce stroje na straně zákazníka.',
+				technologies: ['Přejímka stroje'],
+			},
+		],
+	},
+];
+
+const totalProjects = groups.reduce((total, group) => total + group.projects.length, 0);
+---
+
+<!doctype html>
+<html lang="cs">
+	<head>
+		<BaseHead
+			title={`Reference & realizované projekty | ${SITE_TITLE}`}
+			description="Vybrané realizace v automobilovém průmyslu a průmyslové automatizaci v ČR, Německu a Číně. Projekty z let 2014–2021."
+		/>
+	</head>
+	<body class="min-h-screen bg-slate-950 text-base leading-relaxed text-slate-200">
+		<Header />
+		<main class="m-0 w-full max-w-none p-0">
+			<section class="relative isolate overflow-hidden border-b border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+				<div aria-hidden="true" class="pointer-events-none absolute -right-36 -top-40 size-[30rem] rounded-full border border-cyan-400/10"></div>
+				<div aria-hidden="true" class="pointer-events-none absolute -right-16 -top-20 size-[20rem] rounded-full border border-cyan-400/10"></div>
+				<div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20">
+					<p class="mb-4 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-cyan-300 sm:text-sm">
+						<span class="h-px w-8 bg-cyan-400"></span>
+						VYBRANÉ REALIZACE · 2014–2021
+					</p>
+					<h1 class="mb-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+						Reference <span class="text-cyan-300">&amp; realizované projekty</span>
+					</h1>
+					<p class="mb-8 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
+						Zkušenosti z automobilového průmyslu a průmyslové automatizace v České republice,
+						Německu a Číně — od EoL testerů a kamerových systémů po PLC a embedded vývoj.
+					</p>
+					<div class="mb-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-slate-400 sm:text-sm">
+						<span>ČR</span>
+						<span>Německo</span>
+						<span>Čína</span>
+						<span>{totalProjects} projektů</span>
+					</div>
+					<nav aria-label="Přejít na rok" class="flex flex-wrap gap-2">
+						{groups.map((group) => (
+							<a
+								class="rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 font-mono text-xs text-slate-300 no-underline transition hover:border-cyan-400/60 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 sm:text-sm"
+								href={`#${group.id}`}
+							>
+								{group.label}
+							</a>
+						))}
+					</nav>
+				</div>
+			</section>
+
+			<div class="mx-auto max-w-7xl space-y-16 px-5 py-14 sm:px-8 sm:py-20">
+				{groups.map((group) => (
+					<section id={group.id} aria-labelledby={`${group.id}-title`} class="scroll-mt-28">
+						<div class="mb-6 flex flex-col gap-3 border-b border-slate-800 pb-5 sm:flex-row sm:items-end sm:justify-between">
+							<div>
+								<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">
+									{group.context}
+								</p>
+								<h2 id={`${group.id}-title`} class="m-0 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+									{group.label}
+								</h2>
+							</div>
+							<p class="m-0 font-mono text-xs text-slate-500">
+								{String(group.projects.length).padStart(2, '0')} REALIZACÍ
+							</p>
+						</div>
+
+						<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+							{group.projects.map((project, index) => (
+								<article class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
+									<div class="mb-5 flex items-center justify-between gap-3">
+										<p class="m-0 truncate text-sm font-semibold text-cyan-200">{project.client}</p>
+										<span class="shrink-0 font-mono text-xs text-slate-500">
+											{project.year} / {String(index + 1).padStart(2, '0')}
+										</span>
+									</div>
+									<h3 class="mb-3 text-lg font-semibold leading-snug text-white sm:text-xl">
+										{project.title}
+									</h3>
+									<p class="mb-5 text-sm leading-relaxed text-slate-400">{project.description}</p>
+									<ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+										{project.technologies.map((technology) => (
+											<li class="rounded border border-slate-700/80 bg-slate-950/70 px-2.5 py-1 font-mono text-[0.68rem] text-slate-300">
+												{technology}
+											</li>
+										))}
+									</ul>
+								</article>
+							))}
+						</div>
+					</section>
+				))}
+			</div>
+
+			<section class="border-y border-slate-800 bg-slate-900/70">
+				<div class="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-12 sm:px-8 md:flex-row md:items-center md:justify-between">
+					<div>
+						<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">
+							MÁTE PODOBNÝ PROJEKT?
+						</p>
+						<h2 class="m-0 text-2xl font-bold text-white">Pojďme ho probrat.</h2>
+					</div>
+					<a
+						class="inline-flex w-fit items-center justify-center rounded-md bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 no-underline transition hover:bg-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+						href={`${base}contact/`}
+					>
+						Máte podobný projekt? Pojďme ho probrat
+						<span aria-hidden="true" class="ml-2">→</span>
+					</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
