@@ -3,312 +3,13 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
-
-type Project = {
-	year: string;
-	client: string;
-	title: string;
-	description: string;
-	technologies: string[];
-	category: 'eol' | 'plc' | 'software';
-	badges?: string[];
-};
+import { czechReferenceGroups } from '../data/references';
 
 const base = import.meta.env.BASE_URL.endsWith('/')
 	? import.meta.env.BASE_URL
 	: `${import.meta.env.BASE_URL}/`;
 
-const groups: { id: string; label: string; context: string; projects: Project[] }[] = [
-	{
-		id: '2021',
-		label: '2021',
-		context: 'OSVČ',
-		projects: [
-			{
-				year: '2021',
-				client: 'VALEO · Rakovník',
-				title: 'EoL tester klimatizačního panelu PQ26',
-				description:
-					'Integrace projektu PQ26 do koncového testeru pro testování panelu řízení klimatizace.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
-				category: 'eol',
-			},
-			{
-				year: '2021',
-				client: 'KSR Industrial · Opava',
-				title: 'Sběr dat ze strojů Engel a Arburg',
-				description: 'Vývoj aplikace pro sběr a ukládání výrobních dat z lisovacích strojů.',
-				technologies: ['Qt', 'C++', 'MS SQL'],
-				category: 'software',
-			},
-			{
-				year: '2021',
-				client: 'KSR Industrial · Opava',
-				title: 'Laboratorní tester automobilových pedálů',
-				description:
-					'Testovací aplikace a řídicí logika pro laboratorní pracoviště včetně parametrizace terminálu VTEM.',
-				technologies: ['Testovací aplikace', 'PLC FESTO', 'CODESYS', 'VTEM'],
-				category: 'eol',
-			},
-		],
-	},
-	{
-		id: '2020',
-		label: '2020',
-		context: 'OSVČ',
-		projects: [
-			{
-				year: '2020',
-				client: 'Estelar s.r.o.',
-				title: 'STM32 aplikace a převodník UART–Ethernet',
-				description:
-					'Vývoj firmware pro mikrokontrolér STM32 a síťových služeb pro převodník UART na Ethernet.',
-				technologies: ['STM32 CubeIDE', 'C/C++', 'RTOS', 'LwIP', 'MbedTLS', 'HTTP/HTTPS', 'REST'],
-				category: 'software',
-			},
-			{
-				year: '2020',
-				client: 'URC Systems s.r.o.',
-				title: 'Front-end aplikace GERASIM',
-				description:
-					'Uživatelské rozhraní modulárního generátoru radiotechnických signálů.',
-				technologies: ['Qt', 'C++'],
-				category: 'software',
-			},
-			{
-				year: '2020',
-				client: 'KSR Industrial · Opava',
-				title: 'Svařovací přípravek',
-				description: 'Programování řídicího systému svařovacího přípravku.',
-				technologies: ['PLC Siemens S7-200'],
-				category: 'plc',
-			},
-			{
-				year: '2020',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'EoL tester světlometů VW Tiguan',
-				description:
-					'Nasvěcování a koncové seřízení světlometů; parametrizace aplikace pro kontrolu světelných funkcí a mechanického ustavení.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-				category: 'eol',
-			},
-			{
-				year: '2020',
-				client: 'VALEO · Rakovník',
-				title: 'EoL tester dešťového snímače Gen61',
-				description:
-					'Vývoj testovací aplikace a sekvence pro ověření dešťového snímače v koncovém testeru.',
-				technologies: ['NI TestStand', 'LIN', 'NI-XNET'],
-				category: 'eol',
-			},
-		],
-	},
-	{
-		id: '2019',
-		label: '2019',
-		context: 'OSVČ',
-		projects: [
-			{
-				year: '2019',
-				client: 'VALEO · Rakovník',
-				title: 'EoL tester dešťového snímače',
-				description: 'Testovací aplikace a sekvence pro kontrolu dešťového snímače.',
-				technologies: ['NI TestStand', 'LIN', 'NI-XNET'],
-				category: 'eol',
-			},
-			{
-				year: '2019',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'EoL tester světlometů BMW F60LCI',
-				description:
-					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí a mechanického ustavení.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-				category: 'eol',
-			},
-			{
-				year: '2019',
-				client: 'KSR Industrial · Hannover',
-				title: 'Laboratorní tester automobilových pedálů',
-				description: 'Vývoj testovací aplikace pro laboratorní tester pedálů.',
-				technologies: ['Testovací aplikace'],
-				category: 'eol',
-			},
-			{
-				year: '2019',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'EoL tester systému DMS',
-				description:
-					'Testování systému sledování řidiče (Driver Monitoring System) v koncovém testeru.',
-				technologies: ['Testovací aplikace', 'MySQL', 'CAN', 'NI-XNET'],
-				category: 'eol',
-			},
-			{
-				year: '2019',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'EoL tester světlometů AUDI A4',
-				description:
-					'Nasvěcování a koncové seřízení světlometů; nastavení aplikace pro kontrolu světelných funkcí a mechanického ustavení.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-				category: 'eol',
-			},
-			{
-				year: '2019',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'EoL tester klimatizačního panelu FORD V362 MCA',
-				description:
-					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
-				category: 'eol',
-			},
-		],
-	},
-	{
-		id: '2018',
-		label: '2018',
-		context: 'OSVČ',
-		projects: [
-			{
-				year: '2018',
-				client: 'Hyundai Motor Czech · Nošovice',
-				title: 'Kamerový systém pro výstupní kontrolu převodovek',
-				description:
-					'Aplikace pro záznam snímků převodovek z kamer a podporu výstupní kontroly.',
-				technologies: ['Qt', 'C++', 'Průmyslové kamery'],
-				category: 'software',
-			},
-			{
-				year: '2018',
-				client: 'KSR Industrial · Opava',
-				title: 'Vyhodnocení pozice svařené matky',
-				description: 'Programování PLC a vyhodnocení polohy svařované matky.',
-				technologies: ['OMC8000', 'Orbit Merret', 'MULTIPROG'],
-				category: 'plc',
-			},
-			{
-				year: '2018',
-				client: 'VALEO Automotive Air Conditioning · Nanjing',
-				title: 'EoL měření hluku a vibrací · MQB A0 / MQB 34',
-				description:
-					'Zprovoznění systému SAVAS pro měření hluku a vibrací na straně zákazníka.',
-				technologies: ['SAVAS', 'ELCOM a.s.', 'EoL tester'],
-				category: 'eol',
-			},
-			{
-				year: '2018',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'EoL tester klimatizačního panelu FORD C519',
-				description:
-					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
-				category: 'eol',
-			},
-			{
-				year: '2018',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'EoL tester světlometů VW Tiguan',
-				description:
-					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-				category: 'eol',
-			},
-			{
-				year: '2018',
-				client: 'MASSAG · Bílovec',
-				title: 'Aplikace pro potisk trubek',
-				description:
-					'PC aplikace pro popisovačku trubek s PLC návazností a uživatelským rozhraním.',
-				technologies: ['Qt', 'C++', 'PLC OMC8000', 'Orbit Merret', 'MULTIPROG'],
-				category: 'software',
-			},
-		],
-	},
-	{
-		id: '2017',
-		label: '2017',
-		context: 'OSVČ',
-		projects: [
-			{
-				year: '2017',
-				client: 'VALEO · Rakovník',
-				title: 'EoL tester dotykového panelu T9',
-				description:
-					'Integrace projektu T9 do koncového testeru pro testování dotykového panelu.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'LIN', 'V-Line'],
-				category: 'eol',
-			},
-			{
-				year: '2017',
-				client: 'FAW & VALEO Automotive Air Conditioning · Qingdao',
-				title: 'EoL měření hluku a vibrací · MQB 34',
-				description:
-					'Zprovoznění systému SAVAS pro měření hluku a vibrací na straně zákazníka.',
-				technologies: ['SAVAS', 'ELCOM a.s.', 'EoL tester'],
-				category: 'eol',
-			},
-			{
-				year: '2017',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'EoL tester klimatizačního panelu FORD C490MCA',
-				description:
-					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
-				category: 'eol',
-			},
-			{
-				year: '2017',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'EoL tester světlometů BMW',
-				description:
-					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-				category: 'eol',
-			},
-		],
-	},
-	{
-		id: '2014-2016',
-		label: '2014–2016',
-		context: 'Ve spolupráci se Suzhou Elcom Automation Technology Co., Ltd.',
-		projects: [
-			{
-				year: '2016',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'EoL tester dotykového panelu T9HD',
-				description:
-					'Integrace projektu T9HD do koncového testeru pro testování dotykového panelu.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'NI TestStand', 'MySQL', 'CAN', 'LIN', 'V-Line'],
-				category: 'eol',
-			},
-			{
-				year: '2014–2016',
-				client: 'Magneti Marelli · Automotive Lighting · Čína',
-				title: 'EoL testery světlometů — Magneti Marelli (Čína)',
-				description:
-					'Elektrické projekty strojů pro přednasvěcování a finální seřízení světlometů napříč výrobními závody Foshan, Wuhu a Xiaogan.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Elektro projekt', 'HMI'],
-				category: 'eol',
-				badges: [
-					'PSA X74',
-					'GM Chevrolet D2JBI',
-					'Jeep J523HL',
-					'VW SVW376',
-					'VW SVW511',
-					'VW SVW378',
-					'VW SVW253',
-					'GM Chevrolet D586C',
-				],
-			},
-			{
-				year: '2014',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'EoL tester světlometů MBC W205',
-				description: 'Asistence při přejímce stroje na straně zákazníka.',
-				technologies: ['Přejímka stroje'],
-				category: 'eol',
-			},
-		],
-	},
-];
+const groups = czechReferenceGroups;
 
 const totalProjects = groups.reduce((total, group) => total + group.projects.length, 0);
 ---
@@ -318,7 +19,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 	<head>
 		<BaseHead
 			title={`Reference & realizované projekty | ${SITE_TITLE}`}
-			description="Vybrané realizace v automobilovém průmyslu a průmyslové automatizaci v ČR, Německu a Číně. Projekty z let 2014–2021."
+			description="Vybrané realizace v automobilovém průmyslu a průmyslové automatizaci v ČR, Německu a Číně. Projekty z let 2014–2026."
 		/>
 	</head>
 	<body class="min-h-screen bg-slate-950 text-base leading-relaxed text-slate-200">
@@ -330,7 +31,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 				<div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20">
 					<p class="mb-4 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-cyan-300 sm:text-sm">
 						<span class="h-px w-8 bg-cyan-400"></span>
-						VYBRANÉ REALIZACE · 2014–2021
+						VYBRANÉ REALIZACE · 2014–2026
 					</p>
 					<h1 class="mb-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
 						Reference <span class="text-cyan-300">&amp; realizované projekty</span>
@@ -343,7 +44,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 						<span>ČR</span>
 						<span>Německo</span>
 						<span>Čína</span>
-						<span>{totalProjects} projektů</span>
+						<span>{totalProjects} referenčních karet</span>
 					</div>
 					<div class="mb-7">
 						<p class="mb-3 font-mono text-xs font-semibold tracking-[0.18em] text-slate-500">
@@ -367,7 +68,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 							))}
 						</div>
 						<p id="filter-status" class="mb-0 mt-3 text-xs text-slate-500" aria-live="polite">
-							Zobrazeno {totalProjects} realizací.
+							Zobrazeno {totalProjects} referenčních karet.
 						</p>
 					</div>
 					<nav aria-label="Přejít na rok" class="flex flex-wrap gap-2">
@@ -397,7 +98,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 								</h2>
 							</div>
 							<p data-project-count class="m-0 font-mono text-xs text-slate-500">
-								{String(group.projects.length).padStart(2, '0')} REALIZACÍ
+								{String(group.projects.length).padStart(2, '0')} KARET
 							</p>
 						</div>
 
@@ -405,7 +106,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 							{group.projects.map((project, index) => (
 								<article data-project-card data-project-category={project.category} class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
 									<div class="mb-5 flex items-center justify-between gap-3">
-										<p class="m-0 truncate text-sm font-semibold text-cyan-200">{project.client}</p>
+										<p class="m-0 min-w-0 break-words text-sm font-semibold text-cyan-200">{project.client}</p>
 										<span class="shrink-0 font-mono text-xs text-slate-500">
 											{project.year} / {String(index + 1).padStart(2, '0')}
 										</span>
@@ -488,7 +189,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 						const visibleCount = Array.from(cards).filter((card) => !card.hidden).length;
 						section.hidden = visibleCount === 0;
 						const count = section.querySelector<HTMLElement>('[data-project-count]');
-						if (count) count.textContent = `${String(visibleCount).padStart(2, '0')} REALIZACÍ`;
+						if (count) count.textContent = `${String(visibleCount).padStart(2, '0')} KARET`;
 						const yearJump = document.querySelector<HTMLElement>(
 							`[data-year-jump="${section.id}"]`,
 						);
@@ -496,7 +197,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 					});
 
 					const visibleTotal = Array.from(projectCards).filter((card) => !card.hidden).length;
-					filterStatus.textContent = `Zobrazeno ${visibleTotal} z ${projectCards.length} realizací.`;
+					filterStatus.textContent = `Zobrazeno ${visibleTotal} z ${projectCards.length} referenčních karet.`;
 				});
 			});
 		</script>

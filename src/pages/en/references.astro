@@ -4,297 +4,9 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+import { englishReferenceGroups } from '../../data/references';
 
-type Project = {
-	year: string;
-	client: string;
-	title: string;
-	description: string;
-	technologies: string[];
-};
-
-const groups: { id: string; label: string; context: string; projects: Project[] }[] = [
-	{
-		id: '2021',
-		label: '2021',
-		context: 'Independent contractor',
-		projects: [
-			{
-				year: '2021',
-				client: 'VALEO · Rakovník',
-				title: 'PQ26 climate control panel EoL tester',
-				description: 'Integrated the PQ26 project into an end-of-line tester for climate control panels.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
-			},
-			{
-				year: '2021',
-				client: 'KSR Industrial · Opava',
-				title: 'Data acquisition from Engel and Arburg machines',
-				description: 'Developed an application to collect and store production data from injection moulding machines.',
-				technologies: ['Qt', 'C++', 'MS SQL'],
-			},
-			{
-				year: '2021',
-				client: 'KSR Industrial · Opava',
-				title: 'Automotive pedal laboratory tester',
-				description: 'Test application and control logic for a laboratory test station, including VTEM terminal configuration.',
-				technologies: ['Test application', 'FESTO PLC', 'CODESYS', 'VTEM'],
-			},
-		],
-	},
-	{
-		id: '2020',
-		label: '2020',
-		context: 'Independent contractor',
-		projects: [
-			{
-				year: '2020',
-				client: 'Estelar s.r.o.',
-				title: 'STM32 application and UART–Ethernet gateway',
-				description: 'Developed STM32 firmware and network services for a UART-to-Ethernet gateway.',
-				technologies: ['STM32 CubeIDE', 'C/C++', 'RTOS', 'LwIP', 'MbedTLS', 'HTTP/HTTPS', 'REST'],
-			},
-			{
-				year: '2020',
-				client: 'URC Systems s.r.o.',
-				title: 'GERASIM application front end',
-				description: 'User interface for a modular radio-frequency signal generator.',
-				technologies: ['Qt', 'C++'],
-			},
-			{
-				year: '2020',
-				client: 'KSR Industrial · Opava',
-				title: 'Welding fixture',
-				description: 'Programming the control system for a welding fixture.',
-				technologies: ['Siemens S7-200 PLC'],
-			},
-			{
-				year: '2020',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'VW Tiguan headlamp EoL tester',
-				description: 'Headlamp illumination and final aiming, with application configuration for lighting functions and mechanical alignment checks.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-			},
-			{
-				year: '2020',
-				client: 'VALEO · Rakovník',
-				title: 'Gen61 rain sensor EoL tester',
-				description: 'Developed the test application and sequence for verification of a rain sensor on an end-of-line tester.',
-				technologies: ['NI TestStand', 'LIN', 'NI-XNET'],
-			},
-		],
-	},
-	{
-		id: '2019',
-		label: '2019',
-		context: 'Independent contractor',
-		projects: [
-			{
-				year: '2019',
-				client: 'VALEO · Rakovník',
-				title: 'Rain sensor EoL tester',
-				description: 'Test application and sequence for rain sensor inspection.',
-				technologies: ['NI TestStand', 'LIN', 'NI-XNET'],
-			},
-			{
-				year: '2019',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'BMW F60 LCI headlamp EoL tester',
-				description: 'Headlamp illumination and final aiming, including checks of lighting functions and mechanical alignment.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-			},
-			{
-				year: '2019',
-				client: 'KSR Industrial · Hannover',
-				title: 'Automotive pedal laboratory tester',
-				description: 'Developed a test application for a laboratory pedal tester.',
-				technologies: ['Test application'],
-			},
-			{
-				year: '2019',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'Driver Monitoring System (DMS) EoL tester',
-				description: 'End-of-line testing of a driver monitoring system.',
-				technologies: ['Test application', 'MySQL', 'CAN', 'NI-XNET'],
-			},
-			{
-				year: '2019',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'AUDI A4 headlamp EoL tester',
-				description: 'Headlamp illumination and final aiming, with application setup for lighting function and mechanical alignment checks.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-			},
-			{
-				year: '2019',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'FORD V362 MCA climate control panel EoL tester',
-				description: 'Integrated the project into an end-of-line tester for climate control panels.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
-			},
-		],
-	},
-	{
-		id: '2018',
-		label: '2018',
-		context: 'Independent contractor',
-		projects: [
-			{
-				year: '2018',
-				client: 'Hyundai Motor Czech · Nošovice',
-				title: 'Vision system for transmission final inspection',
-				description: 'Application to capture images of transmissions from cameras and support final inspection.',
-				technologies: ['Qt', 'C++', 'Industrial cameras'],
-			},
-			{
-				year: '2018',
-				client: 'KSR Industrial · Opava',
-				title: 'Welded nut position evaluation',
-				description: 'PLC programming and evaluation of the welded nut position.',
-				technologies: ['OMC8000', 'Orbit Merret', 'MULTIPROG'],
-			},
-			{
-				year: '2018',
-				client: 'VALEO Automotive Air Conditioning · Nanjing',
-				title: 'MQB A0 / MQB 34 noise and vibration EoL measurement',
-				description: 'Commissioned the SAVAS noise and vibration measurement system at the customer site.',
-				technologies: ['SAVAS', 'ELCOM a.s.', 'EoL tester'],
-			},
-			{
-				year: '2018',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'FORD C519 climate control panel EoL tester',
-				description: 'Integrated the project into an end-of-line tester for climate control panels.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
-			},
-			{
-				year: '2018',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'VW Tiguan headlamp EoL tester',
-				description: 'Headlamp illumination and final aiming, including checks of lighting functions.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-			},
-			{
-				year: '2018',
-				client: 'MASSAG · Bílovec',
-				title: 'Pipe marking application',
-				description: 'PC application for a pipe marking machine, integrated with a PLC and operator interface.',
-				technologies: ['Qt', 'C++', 'OMC8000 PLC', 'Orbit Merret', 'MULTIPROG'],
-			},
-		],
-	},
-	{
-		id: '2017',
-		label: '2017',
-		context: 'Independent contractor',
-		projects: [
-			{
-				year: '2017',
-				client: 'VALEO · Rakovník',
-				title: 'T9 touch panel EoL tester',
-				description: 'Integrated the T9 project into an end-of-line tester for touch panels.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'LIN', 'V-Line'],
-			},
-			{
-				year: '2017',
-				client: 'FAW & VALEO Automotive Air Conditioning · Qingdao',
-				title: 'MQB 34 noise and vibration EoL measurement',
-				description: 'Commissioned the SAVAS noise and vibration measurement system at the customer site.',
-				technologies: ['SAVAS', 'ELCOM a.s.', 'EoL tester'],
-			},
-			{
-				year: '2017',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'FORD C490MCA climate control panel EoL tester',
-				description: 'Integrated the project into an end-of-line tester for climate control panels.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
-			},
-			{
-				year: '2017',
-				client: 'Automotive Lighting · Jihlava',
-				title: 'BMW headlamp EoL tester',
-				description: 'Headlamp illumination and final aiming, including checks of lighting functions.',
-				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
-			},
-		],
-	},
-	{
-		id: '2014-2016',
-		label: '2014–2016',
-		context: 'In cooperation with Suzhou Elcom Automation Technology Co., Ltd.',
-		projects: [
-			{
-				year: '2016',
-				client: 'VALEO Interior Controls · Shenzhen',
-				title: 'T9HD touch panel EoL tester',
-				description: 'Integrated the T9HD project into an end-of-line tester for touch panels.',
-				technologies: ['C/C++', 'NI LabWindows/CVI', 'NI TestStand', 'MySQL', 'CAN', 'LIN', 'V-Line'],
-			},
-			{
-				year: '2016',
-				client: 'Magneti Marelli · Automotive Lighting · Foshan',
-				title: 'PSA X74 headlamp EoL tester',
-				description: 'Electrical design of a machine for pre-aiming and final aiming of headlamps.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'User interface'],
-			},
-			{
-				year: '2015',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'GM Chevrolet D2JBI headlamp EoL tester',
-				description: 'Electrical design of a machine for final headlamp aiming.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'User interface'],
-			},
-			{
-				year: '2015',
-				client: 'Magneti Marelli · Automotive Lighting · Foshan',
-				title: 'Jeep J523HL headlamp EoL tester',
-				description: 'Electrical design of a machine for final headlamp aiming.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'User interface'],
-			},
-			{
-				year: '2015',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'VW SVW376 headlamp EoL tester',
-				description: 'Electrical design of a machine for final headlamp aiming.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'User interface'],
-			},
-			{
-				year: '2015',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'VW SVW511 headlamp EoL tester',
-				description: 'Electrical design of a machine for final headlamp aiming.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'User interface'],
-			},
-			{
-				year: '2014',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'VW SVW378 headlamp EoL tester',
-				description: 'Electrical design of a machine for final headlamp aiming.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'User interface'],
-			},
-			{
-				year: '2014',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'VW SVW253 headlamp EoL tester',
-				description: 'Electrical design of a machine for final headlamp aiming.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'User interface'],
-			},
-			{
-				year: '2014',
-				client: 'Magneti Marelli · Automotive Lighting · Xiaogan',
-				title: 'GM Chevrolet D586C headlamp EoL tester',
-				description: 'Electrical design of a machine for final headlamp aiming.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'User interface'],
-			},
-			{
-				year: '2014',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'MBC W205 headlamp EoL tester',
-				description: 'Assisted with machine acceptance at the customer site.',
-				technologies: ['Machine acceptance'],
-			},
-		],
-	},
-];
+const groups = englishReferenceGroups;
 
 const totalProjects = groups.reduce((total, group) => total + group.projects.length, 0);
 ---
@@ -304,7 +16,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 	<head>
 		<BaseHead
 			title={`Projects & References | ${SITE_TITLE}`}
-			description="Selected automotive and industrial automation projects delivered in the Czech Republic, Germany, and China between 2014 and 2021."
+			description="Selected automotive and industrial automation projects in the Czech Republic, Germany, and China between 2014 and 2026."
 		/>
 	</head>
 	<body class="min-h-screen bg-slate-950 text-base leading-relaxed text-slate-200">
@@ -316,7 +28,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 				<div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20">
 					<p class="mb-4 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-cyan-300 sm:text-sm">
 						<span class="h-px w-8 bg-cyan-400"></span>
-						SELECTED PROJECTS · 2014–2021
+						SELECTED PROJECTS · 2014–2026
 					</p>
 					<h1 class="mb-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
 						References <span class="text-cyan-300">&amp; delivered projects</span>
@@ -329,7 +41,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 						<span>Czech Republic</span>
 						<span>Germany</span>
 						<span>China</span>
-						<span>{totalProjects} projects</span>
+						<span>{totalProjects} portfolio entries</span>
 					</div>
 					<nav aria-label="Jump to year" class="flex flex-wrap gap-2">
 						{groups.map((group) => (
@@ -357,7 +69,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 								</h2>
 							</div>
 							<p class="m-0 font-mono text-xs text-slate-500">
-								{String(group.projects.length).padStart(2, '0')} PROJECTS
+								{String(group.projects.length).padStart(2, '0')} ENTRIES
 							</p>
 						</div>
 
@@ -365,7 +77,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 							{group.projects.map((project, index) => (
 								<article class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
 									<div class="mb-5 flex items-center justify-between gap-3">
-										<p class="m-0 truncate text-sm font-semibold text-cyan-200">{project.client}</p>
+										<p class="m-0 min-w-0 break-words text-sm font-semibold text-cyan-200">{project.client}</p>
 										<span class="shrink-0 font-mono text-xs text-slate-500">
 											{project.year} / {String(index + 1).padStart(2, '0')}
 										</span>
