@@ -22,9 +22,17 @@ type ReferenceRow = {
 	badges_en: string;
 };
 
+type CustomerRow = {
+	name: string;
+	full_name: string;
+	website: string;
+};
+
 type Project = {
 	year: string;
 	client: string;
+	clientFullName?: string;
+	clientWebsite?: string;
 	title: string;
 	description: string;
 	technologies: string[];
@@ -53,7 +61,7 @@ function list(value: string): string[] {
 	return value ? value.split('|').map((item) => item.trim()).filter(Boolean) : [];
 }
 
-export function getReferenceGroups(csv: string, locale: Locale): ReferenceGroup[] {
+export function getReferenceGroups(csv: string, locale: Locale, customerCsv: string): ReferenceGroup[] {
 	const rows: ReferenceRow[] = parse(csv, {
 		bom: true,
 		delimiter: ';',
@@ -65,6 +73,30 @@ export function getReferenceGroups(csv: string, locale: Locale): ReferenceGroup[
 			return headers;
 		},
 	});
+	const customers: CustomerRow[] = parse(customerCsv, {
+		bom: true,
+		delimiter: ';',
+		skip_empty_lines: true,
+		columns(headers: string[]) {
+			if (new Set(headers).size !== headers.length || ['name', 'full_name', 'website'].some((column) => !headers.includes(column))) {
+				throw new Error('Customer CSV has duplicate or missing columns.');
+			}
+			return headers;
+		},
+	});
+	const customersByName = new Map<string, CustomerRow>();
+	for (const [index, customer] of customers.entries()) {
+		const name = customer.name.trim().toLowerCase();
+		const website = customer.website.trim();
+		const location = `Customer CSV record ${index + 2}`;
+		if (!name || customersByName.has(name)) {
+			throw new Error(`${location}: customer name is empty or duplicated.`);
+		}
+		if (website && (!URL.canParse(website) || !['http:', 'https:'].includes(new URL(website).protocol))) {
+			throw new Error(`${location}: invalid website URL.`);
+		}
+		customersByName.set(name, customer);
+	}
 	const groups = new Map<string, ReferenceGroup>();
 	const publishedGroups = new Set<string>();
 
@@ -112,9 +144,12 @@ export function getReferenceGroups(csv: string, locale: Locale): ReferenceGroup[
 		}
 
 		const badges = list(row[`badges_${locale}`]);
+		const customer = customersByName.get(client.trim().toLowerCase());
 		group.projects.push({
 			year: row.year,
 			client,
+			clientFullName: customer?.full_name.trim() || undefined,
+			clientWebsite: customer?.website.trim() || undefined,
 			title,
 			description,
 			technologies: list(row[`technologies_${locale}`]),

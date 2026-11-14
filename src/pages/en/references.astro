@@ -77,7 +77,13 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 							{group.projects.map((project, index) => (
 								<article class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
 									<div class="mb-5 flex items-center justify-between gap-3">
-										<p class="m-0 min-w-0 break-words text-sm font-semibold text-cyan-200">{project.client}</p>
+										<p class="m-0 min-w-0 break-words text-sm font-semibold text-cyan-200">
+											{project.clientWebsite ? (
+												<a href={project.clientWebsite} title={project.clientFullName} class="underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400">{project.client}</a>
+											) : (
+												<span title={project.clientFullName}>{project.client}</span>
+											)}
+										</p>
 										<span class="shrink-0 font-mono text-xs text-slate-500">
 											{project.year} / {String(index + 1).padStart(2, '0')}
 										</span>
