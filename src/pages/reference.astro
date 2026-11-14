@@ -10,6 +10,8 @@ type Project = {
 	title: string;
 	description: string;
 	technologies: string[];
+	category: 'eol' | 'plc' | 'software';
+	badges?: string[];
 };
 
 const base = import.meta.env.BASE_URL.endsWith('/')
@@ -29,6 +31,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Integrace projektu PQ26 do koncového testeru pro testování panelu řízení klimatizace.',
 				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
+				category: 'eol',
 			},
 			{
 				year: '2021',
@@ -36,6 +39,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				title: 'Sběr dat ze strojů Engel a Arburg',
 				description: 'Vývoj aplikace pro sběr a ukládání výrobních dat z lisovacích strojů.',
 				technologies: ['Qt', 'C++', 'MS SQL'],
+				category: 'software',
 			},
 			{
 				year: '2021',
@@ -44,6 +48,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Testovací aplikace a řídicí logika pro laboratorní pracoviště včetně parametrizace terminálu VTEM.',
 				technologies: ['Testovací aplikace', 'PLC FESTO', 'CODESYS', 'VTEM'],
+				category: 'eol',
 			},
 		],
 	},
@@ -59,6 +64,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Vývoj firmware pro mikrokontrolér STM32 a síťových služeb pro převodník UART na Ethernet.',
 				technologies: ['STM32 CubeIDE', 'C/C++', 'RTOS', 'LwIP', 'MbedTLS', 'HTTP/HTTPS', 'REST'],
+				category: 'software',
 			},
 			{
 				year: '2020',
@@ -67,6 +73,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Uživatelské rozhraní modulárního generátoru radiotechnických signálů.',
 				technologies: ['Qt', 'C++'],
+				category: 'software',
 			},
 			{
 				year: '2020',
@@ -74,6 +81,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				title: 'Svařovací přípravek',
 				description: 'Programování řídicího systému svařovacího přípravku.',
 				technologies: ['PLC Siemens S7-200'],
+				category: 'plc',
 			},
 			{
 				year: '2020',
@@ -82,6 +90,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Nasvěcování a koncové seřízení světlometů; parametrizace aplikace pro kontrolu světelných funkcí a mechanického ustavení.',
 				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+				category: 'eol',
 			},
 			{
 				year: '2020',
@@ -90,6 +99,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Vývoj testovací aplikace a sekvence pro ověření dešťového snímače v koncovém testeru.',
 				technologies: ['NI TestStand', 'LIN', 'NI-XNET'],
+				category: 'eol',
 			},
 		],
 	},
@@ -104,6 +114,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				title: 'EoL tester dešťového snímače',
 				description: 'Testovací aplikace a sekvence pro kontrolu dešťového snímače.',
 				technologies: ['NI TestStand', 'LIN', 'NI-XNET'],
+				category: 'eol',
 			},
 			{
 				year: '2019',
@@ -112,6 +123,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí a mechanického ustavení.',
 				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+				category: 'eol',
 			},
 			{
 				year: '2019',
@@ -119,6 +131,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				title: 'Laboratorní tester automobilových pedálů',
 				description: 'Vývoj testovací aplikace pro laboratorní tester pedálů.',
 				technologies: ['Testovací aplikace'],
+				category: 'eol',
 			},
 			{
 				year: '2019',
@@ -127,6 +140,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Testování systému sledování řidiče (Driver Monitoring System) v koncovém testeru.',
 				technologies: ['Testovací aplikace', 'MySQL', 'CAN', 'NI-XNET'],
+				category: 'eol',
 			},
 			{
 				year: '2019',
@@ -135,6 +149,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Nasvěcování a koncové seřízení světlometů; nastavení aplikace pro kontrolu světelných funkcí a mechanického ustavení.',
 				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+				category: 'eol',
 			},
 			{
 				year: '2019',
@@ -143,6 +158,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
 				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
+				category: 'eol',
 			},
 		],
 	},
@@ -158,6 +174,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Aplikace pro záznam snímků převodovek z kamer a podporu výstupní kontroly.',
 				technologies: ['Qt', 'C++', 'Průmyslové kamery'],
+				category: 'software',
 			},
 			{
 				year: '2018',
@@ -165,6 +182,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				title: 'Vyhodnocení pozice svařené matky',
 				description: 'Programování PLC a vyhodnocení polohy svařované matky.',
 				technologies: ['OMC8000', 'Orbit Merret', 'MULTIPROG'],
+				category: 'plc',
 			},
 			{
 				year: '2018',
@@ -173,6 +191,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Zprovoznění systému SAVAS pro měření hluku a vibrací na straně zákazníka.',
 				technologies: ['SAVAS', 'ELCOM a.s.', 'EoL tester'],
+				category: 'eol',
 			},
 			{
 				year: '2018',
@@ -181,6 +200,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
 				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
+				category: 'eol',
 			},
 			{
 				year: '2018',
@@ -189,6 +209,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí.',
 				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+				category: 'eol',
 			},
 			{
 				year: '2018',
@@ -197,6 +218,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'PC aplikace pro popisovačku trubek s PLC návazností a uživatelským rozhraním.',
 				technologies: ['Qt', 'C++', 'PLC OMC8000', 'Orbit Merret', 'MULTIPROG'],
+				category: 'software',
 			},
 		],
 	},
@@ -212,6 +234,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Integrace projektu T9 do koncového testeru pro testování dotykového panelu.',
 				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'LIN', 'V-Line'],
+				category: 'eol',
 			},
 			{
 				year: '2017',
@@ -220,6 +243,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Zprovoznění systému SAVAS pro měření hluku a vibrací na straně zákazníka.',
 				technologies: ['SAVAS', 'ELCOM a.s.', 'EoL tester'],
+				category: 'eol',
 			},
 			{
 				year: '2017',
@@ -228,6 +252,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Integrace projektu do koncového testeru pro testování panelu řízení klimatizace.',
 				technologies: ['C/C++', 'NI LabWindows/CVI', 'MySQL', 'CAN', 'V-Line'],
+				category: 'eol',
 			},
 			{
 				year: '2017',
@@ -236,6 +261,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Nasvěcování a koncové seřízení světlometů včetně kontroly světelných funkcí.',
 				technologies: ['NI LabVIEW', 'ELCOM a.s.'],
+				category: 'eol',
 			},
 		],
 	},
@@ -251,63 +277,26 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				description:
 					'Integrace projektu T9HD do koncového testeru pro testování dotykového panelu.',
 				technologies: ['C/C++', 'NI LabWindows/CVI', 'NI TestStand', 'MySQL', 'CAN', 'LIN', 'V-Line'],
+				category: 'eol',
 			},
 			{
-				year: '2016',
-				client: 'Magneti Marelli · Automotive Lighting · Foshan',
-				title: 'EoL tester světlometů PSA X74',
+				year: '2014–2016',
+				client: 'Magneti Marelli · Automotive Lighting · Čína',
+				title: 'EoL testery světlometů — Magneti Marelli (Čína)',
 				description:
-					'Elektro projekt stroje pro před-nasvěcování a koncové nasvěcování světlometů.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
-			},
-			{
-				year: '2015',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'EoL tester světlometů GM Chevrolet D2JBI',
-				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
-			},
-			{
-				year: '2015',
-				client: 'Magneti Marelli · Automotive Lighting · Foshan',
-				title: 'EoL tester světlometů Jeep J523HL',
-				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
-			},
-			{
-				year: '2015',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'EoL tester světlometů VW SVW376',
-				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
-			},
-			{
-				year: '2015',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'EoL tester světlometů VW SVW511',
-				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
-			},
-			{
-				year: '2014',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'EoL tester světlometů VW SVW378',
-				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
-			},
-			{
-				year: '2014',
-				client: 'Magneti Marelli · Automotive Lighting · Wuhu',
-				title: 'EoL tester světlometů VW SVW253',
-				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
-			},
-			{
-				year: '2014',
-				client: 'Magneti Marelli · Automotive Lighting · Xiaogan',
-				title: 'EoL tester světlometů GM Chevrolet D586C',
-				description: 'Elektro projekt stroje pro koncové nasvěcování světlometů.',
-				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Uživatelské rozhraní'],
+					'Elektrické projekty strojů pro přednasvěcování a finální seřízení světlometů napříč výrobními závody Foshan, Wuhu a Xiaogan.',
+				technologies: ['Beckhoff TwinCAT 2', 'MODBUS', 'Elektro projekt', 'HMI'],
+				category: 'eol',
+				badges: [
+					'PSA X74',
+					'GM Chevrolet D2JBI',
+					'Jeep J523HL',
+					'VW SVW376',
+					'VW SVW511',
+					'VW SVW378',
+					'VW SVW253',
+					'GM Chevrolet D586C',
+				],
 			},
 			{
 				year: '2014',
@@ -315,6 +304,7 @@ const groups: { id: string; label: string; context: string; projects: Project[] 
 				title: 'EoL tester světlometů MBC W205',
 				description: 'Asistence při přejímce stroje na straně zákazníka.',
 				technologies: ['Přejímka stroje'],
+				category: 'eol',
 			},
 		],
 	},
@@ -324,7 +314,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 ---
 
 <!doctype html>
-<html lang="cs">
+<html lang="cs" class="scroll-smooth">
 	<head>
 		<BaseHead
 			title={`Reference & realizované projekty | ${SITE_TITLE}`}
@@ -355,9 +345,35 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 						<span>Čína</span>
 						<span>{totalProjects} projektů</span>
 					</div>
+					<div class="mb-7">
+						<p class="mb-3 font-mono text-xs font-semibold tracking-[0.18em] text-slate-500">
+							FILTROVAT PODLE OBLASTI
+						</p>
+						<div role="group" aria-label="Filtrovat reference podle oblasti" class="flex flex-wrap gap-2">
+							{[
+								{ id: 'all', label: 'Vše' },
+								{ id: 'eol', label: 'EoL Testery' },
+								{ id: 'plc', label: 'PLC & Automatizace' },
+								{ id: 'software', label: 'PC Aplikace & Embedded' },
+							].map((filter, index) => (
+								<button
+									type="button"
+									data-project-filter={filter.id}
+									aria-pressed={index === 0 ? 'true' : 'false'}
+									class="rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 font-mono text-xs font-semibold text-slate-300 transition hover:border-cyan-400/60 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 aria-pressed:border-cyan-400 aria-pressed:bg-cyan-400 aria-pressed:text-slate-950 sm:text-sm"
+								>
+									{filter.label}
+								</button>
+							))}
+						</div>
+						<p id="filter-status" class="mb-0 mt-3 text-xs text-slate-500" aria-live="polite">
+							Zobrazeno {totalProjects} realizací.
+						</p>
+					</div>
 					<nav aria-label="Přejít na rok" class="flex flex-wrap gap-2">
 						{groups.map((group) => (
 							<a
+								data-year-jump={group.id}
 								class="rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 font-mono text-xs text-slate-300 no-underline transition hover:border-cyan-400/60 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 sm:text-sm"
 								href={`#${group.id}`}
 							>
@@ -370,7 +386,7 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 
 			<div class="mx-auto max-w-7xl space-y-16 px-5 py-14 sm:px-8 sm:py-20">
 				{groups.map((group) => (
-					<section id={group.id} aria-labelledby={`${group.id}-title`} class="scroll-mt-28">
+					<section id={group.id} data-project-year={group.id} aria-labelledby={`${group.id}-title`} class="scroll-mt-24">
 						<div class="mb-6 flex flex-col gap-3 border-b border-slate-800 pb-5 sm:flex-row sm:items-end sm:justify-between">
 							<div>
 								<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">
@@ -380,14 +396,14 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 									{group.label}
 								</h2>
 							</div>
-							<p class="m-0 font-mono text-xs text-slate-500">
+							<p data-project-count class="m-0 font-mono text-xs text-slate-500">
 								{String(group.projects.length).padStart(2, '0')} REALIZACÍ
 							</p>
 						</div>
 
 						<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
 							{group.projects.map((project, index) => (
-								<article class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
+								<article data-project-card data-project-category={project.category} class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
 									<div class="mb-5 flex items-center justify-between gap-3">
 										<p class="m-0 truncate text-sm font-semibold text-cyan-200">{project.client}</p>
 										<span class="shrink-0 font-mono text-xs text-slate-500">
@@ -397,6 +413,15 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 									<h3 class="mb-3 text-lg font-semibold leading-snug text-white sm:text-xl">
 										{project.title}
 									</h3>
+									{project.badges && (
+										<ul aria-label="Modely vozidel a projekty" class="mb-5 flex list-none flex-wrap gap-2 p-0">
+											{project.badges.map((badge) => (
+												<li class="rounded-md border border-cyan-400/20 bg-cyan-400/5 px-2.5 py-1 font-mono text-xs font-semibold text-cyan-200">
+													{badge}
+												</li>
+											))}
+										</ul>
+									)}
 									<p class="mb-5 text-sm leading-relaxed text-slate-400">{project.description}</p>
 									<ul class="m-0 flex list-none flex-wrap gap-2 p-0">
 										{project.technologies.map((technology) => (
@@ -424,12 +449,56 @@ const totalProjects = groups.reduce((total, group) => total + group.projects.len
 						class="inline-flex w-fit items-center justify-center rounded-md bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 no-underline transition hover:bg-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
 						href={`${base}contact/`}
 					>
-						Máte podobný projekt? Pojďme ho probrat
+						Kontaktovat
 						<span aria-hidden="true" class="ml-2">→</span>
 					</a>
 				</div>
 			</section>
 		</main>
 		<Footer />
+		<script>
+			const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-project-filter]');
+			const projectCards = document.querySelectorAll<HTMLElement>('[data-project-card]');
+			const yearSections = document.querySelectorAll<HTMLElement>('[data-project-year]');
+			const filterStatus = document.querySelector<HTMLElement>('#filter-status');
+
+			if (filterButtons.length === 0 || projectCards.length === 0 || yearSections.length === 0 || !filterStatus) {
+				throw new Error('Project filters could not be initialized.');
+			}
+
+			filterButtons.forEach((button) => {
+				button.addEventListener('click', () => {
+					const selectedCategory = button.dataset.projectFilter;
+					if (!selectedCategory) throw new Error('A project filter is missing its category.');
+
+					filterButtons.forEach((filterButton) => {
+						filterButton.setAttribute(
+							'aria-pressed',
+							filterButton === button ? 'true' : 'false',
+						);
+					});
+
+					projectCards.forEach((card) => {
+						card.hidden =
+							selectedCategory !== 'all' && card.dataset.projectCategory !== selectedCategory;
+					});
+
+					yearSections.forEach((section) => {
+						const cards = section.querySelectorAll<HTMLElement>('[data-project-card]');
+						const visibleCount = Array.from(cards).filter((card) => !card.hidden).length;
+						section.hidden = visibleCount === 0;
+						const count = section.querySelector<HTMLElement>('[data-project-count]');
+						if (count) count.textContent = `${String(visibleCount).padStart(2, '0')} REALIZACÍ`;
+						const yearJump = document.querySelector<HTMLElement>(
+							`[data-year-jump="${section.id}"]`,
+						);
+						if (yearJump) yearJump.hidden = visibleCount === 0;
+					});
+
+					const visibleTotal = Array.from(projectCards).filter((card) => !card.hidden).length;
+					filterStatus.textContent = `Zobrazeno ${visibleTotal} z ${projectCards.length} realizací.`;
+				});
+			});
+		</script>
 	</body>
 </html>
