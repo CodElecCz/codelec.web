@@ -2,11 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_TITLE } from '../consts';
+import { CONTACT, SITE_TITLE } from '../consts';
 
-const email = 'Radomir.Turca@codelec.cz';
-const phone = '+420 776 287 213';
-const phoneLink = '+420776287213';
 const base = import.meta.env.BASE_URL.endsWith('/')
 	? import.meta.env.BASE_URL
 	: `${import.meta.env.BASE_URL}/`;
@@ -17,7 +14,7 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 	<head>
 		<BaseHead
 			title={`Kontakt | ${SITE_TITLE}`}
-			description="Kontaktujte Ing. Radomíra Turču, Ph.D. pro spolupráci, konzultaci nebo cenovou nabídku v oblasti programování a elektro projekce."
+			description="Kontaktujte Ing. Radomíra Turču, Ph.D. pro spolupráci, konzultaci nebo cenovou nabídku v oblasti průmyslového software, PLC a embedded systémů."
 		/>
 	</head>
 	<body class="min-h-screen bg-slate-950 text-base leading-relaxed text-slate-200">
@@ -47,14 +44,14 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 						<section aria-labelledby="direct-contact-title" class="rounded-xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8">
 							<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">PŘÍMÝ KONTAKT</p>
 							<h2 id="direct-contact-title" class="mb-6 text-2xl font-bold text-white">
-								Ing. Radomír Turča, Ph.D.
+								{CONTACT.name}
 							</h2>
 
 							<dl class="m-0 divide-y divide-slate-800">
 								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
-									<dt class="text-sm text-slate-500">Značka</dt>
+									<dt class="text-sm text-slate-500">Zaměření</dt>
 									<dd class="m-0 text-sm font-medium text-slate-200">
-										CodElec — Programování &amp; elektro projekce
+										CodElec — Průmyslový software, PLC &amp; embedded
 									</dd>
 								</div>
 								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
@@ -62,9 +59,9 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 									<dd class="m-0 flex flex-wrap items-center gap-3">
 										<a
 											class="break-all text-sm font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
-											href={`mailto:${email}`}
+											href={`mailto:${CONTACT.email}`}
 										>
-											{email}
+											{CONTACT.email}
 										</a>
 										<button
 											id="copy-email"
@@ -80,26 +77,62 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 									<dd class="m-0">
 										<a
 											class="text-sm font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
-											href={`tel:${phoneLink}`}
+											href={`tel:${CONTACT.phoneLink}`}
 										>
-											{phone}
+											{CONTACT.phone}
 										</a>
 									</dd>
 								</div>
 								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
-									<dt class="text-sm text-slate-500">IČO</dt>
-									<dd class="m-0 text-sm text-slate-200">06109918 <span class="text-slate-500">(OSVČ)</span></dd>
+									<dt class="text-sm text-slate-500">IČ</dt>
+									<dd class="m-0 text-sm text-slate-200">
+										<a
+											class="font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
+											href={CONTACT.companyRegistry}
+											target="_blank"
+											rel="noopener noreferrer"
+										>{CONTACT.companyId}</a>
+										<span class="text-slate-500">(OSVČ)</span>
+										<div class="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+											{CONTACT.directoryLinks.map(({ name, url }) => (
+												<a
+													class="inline-flex items-center gap-1 text-xs text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
+													href={url}
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													{name}<span class="sr-only"> (otevře se v nové záložce)</span>
+													<svg aria-hidden="true" class="size-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+														<path d="M9 3h4v4M13 3 7 9M12 9v4H3V4h4" />
+													</svg>
+												</a>
+											))}
+										</div>
+									</dd>
 								</div>
 								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
 									<dt class="text-sm text-slate-500">GitHub</dt>
 									<dd class="m-0">
 										<a
 											class="text-sm font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
-											href="https://github.com"
+											href={CONTACT.github}
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											https://github.com
+											{CONTACT.github}
+										</a>
+									</dd>
+								</div>
+								<div class="grid gap-1 py-4 sm:grid-cols-[7rem_1fr] sm:gap-4">
+									<dt class="text-sm text-slate-500">Web</dt>
+									<dd class="m-0">
+										<a
+											class="break-all text-sm font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
+											href={CONTACT.website}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											{CONTACT.website}
 										</a>
 									</dd>
 								</div>
@@ -124,7 +157,7 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 							</p>
 						</div>
 
-						<form id="project-inquiry" data-recipient={email} class="space-y-5">
+						<form id="project-inquiry" data-recipient={CONTACT.email} class="space-y-5">
 							<!-- For Web3Forms later, place its access_key hidden field here. -->
 							<div class="grid gap-5 sm:grid-cols-2">
 								<div>
@@ -179,11 +212,10 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 										required
 									>
 										<option value="" disabled selected>Vyberte oblast</option>
-										<option>PC aplikace / LabVIEW</option>
-										<option>Mikrokontroléry STM32</option>
-										<option>PLC automatizace</option>
-										<option>Diagnostika ECU / CAN / LIN</option>
-										<option>Kamerové systémy Basler</option>
+										<option>Software pro EoL testery &amp; měření</option>
+										<option>PC aplikace &amp; kamerové inspekce</option>
+										<option>Embedded firmware &amp; mikrokontroléry</option>
+										<option>PLC řízení &amp; automatizace</option>
 										<option>Jiné</option>
 									</select>
 								</div>

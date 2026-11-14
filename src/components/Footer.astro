@@ -1,4 +1,6 @@
 ---
+import { CONTACT } from '../consts';
+
 const year = new Date().getFullYear();
 const basePath = import.meta.env.BASE_URL.replace(/\/+$/, '');
 const currentPath =
@@ -13,11 +15,11 @@ const isEnglish = currentPath === 'en' || currentPath.startsWith('en/');
 <footer class="border-t border-slate-800 bg-slate-950 text-slate-400">
 	<div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-7 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8">
 		<p class="m-0">
-			&copy; {year} CodElec · Ing. Radomír Turča, Ph.D. {isEnglish ? 'All rights reserved.' : 'Všechna práva vyhrazena.'}
+			&copy; {year} CodElec · {CONTACT.name} {isEnglish ? 'All rights reserved.' : 'Všechna práva vyhrazena.'}
 		</p>
 		<a
 			class="inline-flex items-center gap-2 text-slate-300 no-underline transition hover:text-cyan-300"
-			href="https://github.com/CodElecCz/codelec.web"
+			href={CONTACT.github}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
