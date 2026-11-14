@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://codeleccz.github.io',
-  base: '/codelec.cz',
+  base: '/codelec.web',
   integrations: [mdx(), sitemap()],
 
   fonts: [
