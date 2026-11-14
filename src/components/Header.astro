@@ -17,11 +17,12 @@ const csToEn: Record<string, string> = {
 	'': '',
 	reference: 'references',
 	contact: 'contact',
-	blog: 'publications',
+	blog: 'blog',
 };
 const enToCs: Record<string, string> = {
 	'': '',
 	references: 'reference',
+	blog: 'blog',
 	publications: 'blog',
 	contact: 'contact',
 };
@@ -30,7 +31,7 @@ function getLanguageUrl(locale: 'cs' | 'en') {
 	if (locale === 'en') {
 		if (isEnglish) return getRelativeLocaleUrl('en', englishRoute);
 		const translatedRoute =
-			route.startsWith('blog/') ? 'publications' : csToEn[route] ?? '';
+			route.startsWith('blog/') ? 'blog' : csToEn[route] ?? '';
 		return getRelativeLocaleUrl('en', translatedRoute);
 	}
 
@@ -45,13 +46,14 @@ const links = isEnglish
 	? [
 			{ label: 'Introduction', href: getRelativeLocaleUrl('en', '') },
 			{ label: 'Projects', href: getRelativeLocaleUrl('en', 'references') },
+			{ label: 'GitHub', href: getRelativeLocaleUrl('en', 'blog') },
 			{ label: 'Publications', href: getRelativeLocaleUrl('en', 'publications') },
 			{ label: 'Contact', href: getRelativeLocaleUrl('en', 'contact') },
 		]
 	: [
 			{ label: 'Úvod', href: getRelativeLocaleUrl('cs', '') },
 			{ label: 'Reference', href: getRelativeLocaleUrl('cs', 'reference') },
-			{ label: 'Příspěvky', href: getRelativeLocaleUrl('cs', 'blog') },
+			{ label: 'GitHub & články', href: getRelativeLocaleUrl('cs', 'blog') },
 			{ label: 'Kontakt', href: getRelativeLocaleUrl('cs', 'contact') },
 		];
 ---

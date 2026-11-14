@@ -41,6 +41,12 @@ The `src/content/` directory contains "collections" of related Markdown and MDX 
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+## GitHub projects and articles
+
+The Czech and English project pages fetch public repositories from the CodElecCz GitHub account during the build, excluding forks and the two website repositories. If the GitHub API is unavailable or rate-limited, the pages show a warning and link to the profile; rebuild when the API is available to refresh the list.
+
+Add Markdown or MDX articles to `src/content/blog/` using the schema in `src/content.config.ts`. The articles section is hidden when there are no posts. The English page links to the original Czech articles.
+
 ## Editing references
 
 Edit [references.csv](src/data/references.csv) in a spreadsheet or text editor. Save it as UTF-8 CSV with a semicolon (`;`) delimiter and keep the header row. Both reference pages read this file when the site builds.

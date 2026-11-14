@@ -1,0 +1,141 @@
+---
+import { getCollection } from 'astro:content';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import { CONTACT, SITE_TITLE } from '../consts';
+import { getGitHubProjects } from '../data/github-projects';
+
+interface Props {
+	locale: 'cs' | 'en';
+}
+
+const { locale } = Astro.props;
+const isEnglish = locale === 'en';
+const [github, posts] = await Promise.all([
+	getGitHubProjects(),
+	getCollection('blog'),
+]);
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const dateFormat = new Intl.DateTimeFormat(isEnglish ? 'en-GB' : 'cs-CZ', {
+	day: 'numeric',
+	month: 'short',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<BaseHead
+			title={`${isEnglish ? 'GitHub projects' : 'GitHub projekty'} | ${SITE_TITLE}`}
+			description={isEnglish
+				? 'Open-source software, embedded and automation projects from CodElec.'
+				: 'Open-source projekty CodElec v oblasti softwaru, embedded systémů a automatizace.'}
+		/>
+	</head>
+	<body class="min-h-screen bg-slate-950 text-base leading-relaxed text-slate-200">
+		<Header />
+		<main class="m-0 w-full max-w-none p-0">
+			<section class="relative isolate overflow-hidden border-b border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+				<div aria-hidden="true" class="pointer-events-none absolute -right-36 -top-40 size-[30rem] rounded-full border border-cyan-400/10"></div>
+				<div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20">
+					<p class="mb-4 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-cyan-300 sm:text-sm">
+						<span class="h-px w-8 bg-cyan-400"></span>
+						CODELEC · GITHUB
+					</p>
+					<h1 class="mb-5 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+						{isEnglish ? 'GitHub projects' : 'GitHub projekty'}
+					</h1>
+					<p class="mb-8 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
+						{isEnglish
+							? 'Public software, embedded and automation projects from my GitHub profile.'
+							: 'Veřejné projekty z mého GitHub profilu v oblasti softwaru, embedded systémů a automatizace.'}
+					</p>
+					<a
+						class="inline-flex items-center justify-center rounded-md bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 no-underline transition hover:bg-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+						href={CONTACT.github}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{isEnglish ? 'View the full @CodElecCz GitHub profile' : 'Zobrazit celý profil @CodElecCz na GitHubu'}
+						<span aria-hidden="true" class="ml-2">→</span>
+						<span class="sr-only">{isEnglish ? ' (opens in a new tab)' : ' (otevře se v nové záložce)'}</span>
+					</a>
+				</div>
+			</section>
+
+			<section aria-labelledby="github-projects-title" class="bg-slate-950">
+				<div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16">
+					<h2 id="github-projects-title" class="mb-8 text-3xl font-bold tracking-tight text-white">
+						{isEnglish ? 'Public repositories' : 'Veřejné repozitáře'}
+					</h2>
+					{!github.ok ? (
+						<p role="status" class="rounded-xl border border-amber-400/30 bg-amber-400/5 p-5 text-sm text-amber-100">
+							{isEnglish
+								? 'GitHub projects could not be loaded during the site build. Please visit the GitHub profile directly.'
+								: 'Projekty z GitHubu se při sestavení webu nepodařilo načíst. Navštivte prosím přímo GitHub profil.'}
+						</p>
+					) : github.projects.length === 0 ? (
+						<p class="text-sm text-slate-400">
+							{isEnglish ? 'No public projects are available.' : 'Nejsou k dispozici žádné veřejné projekty.'}
+						</p>
+					) : (
+						<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+							{github.projects.map((repo) => (
+								<article class="flex flex-col rounded-xl border border-slate-800 bg-slate-900/60 p-6 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900">
+									<h3 class="mb-3 break-words text-xl font-semibold text-white">{repo.name}</h3>
+									<p class="mb-6 flex-1 text-sm leading-relaxed text-slate-400">
+										{repo.description || (isEnglish ? 'No description provided.' : 'Popis není uveden.')}
+									</p>
+									<div class="mb-5 flex flex-wrap items-center gap-3">
+										{repo.language && <span class="rounded border border-slate-700/80 bg-slate-950/70 px-2.5 py-1 font-mono text-xs text-slate-300">{repo.language}</span>}
+										<p class="m-0 text-xs text-slate-500">
+											{isEnglish ? 'Updated' : 'Aktualizováno'} <time datetime={repo.updatedAt}>{dateFormat.format(new Date(repo.updatedAt))}</time>
+										</p>
+									</div>
+									<a
+										class="w-fit text-sm font-semibold text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+										href={repo.url}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{isEnglish ? 'Open on GitHub' : 'Otevřít na GitHubu'} <span aria-hidden="true">→</span>
+										<span class="sr-only">{isEnglish ? ' (opens in a new tab)' : ' (otevře se v nové záložce)'}</span>
+									</a>
+								</article>
+							))}
+						</div>
+					)}
+				</div>
+			</section>
+
+			{posts.length > 0 && (
+				<section aria-labelledby="articles-title" class="border-t border-slate-800 bg-slate-950">
+					<div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16">
+						<h2 id="articles-title" class="mb-8 text-3xl font-bold tracking-tight text-white">
+							{isEnglish ? 'Technical articles & notes' : 'Odborné články & poznámky'}
+						</h2>
+						{isEnglish && <p class="mb-6 text-sm text-slate-400">Articles are available in their Czech original.</p>}
+						<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+							{posts.map((post) => (
+								<article class="rounded-xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-cyan-400/40 hover:bg-slate-900">
+									<h3 class="mb-3 text-xl font-semibold text-white">
+										<a class="text-white no-underline transition hover:text-cyan-300" href={getRelativeLocaleUrl('cs', `blog/${post.id}`)} hreflang="cs">
+											{post.data.title}
+										</a>
+									</h3>
+									<p class="mb-4 text-sm leading-relaxed text-slate-400">{post.data.description}</p>
+									<time class="font-mono text-xs text-slate-500" datetime={post.data.pubDate.toISOString()}>{dateFormat.format(post.data.pubDate)}</time>
+								</article>
+							))}
+						</div>
+					</div>
+				</section>
+			)}
+		</main>
+		<Footer />
+	</body>
+</html>
