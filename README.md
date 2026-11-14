@@ -43,17 +43,19 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 ## Editing references
 
-Edit [refereces.csv](src/data/refereces.csv) in a spreadsheet or text editor. Save it as UTF-8 CSV with a semicolon (`;`) delimiter and keep the header row. Both reference pages read this file when the site builds.
+Edit [references.csv](src/data/references.csv) in a spreadsheet or text editor. Save it as UTF-8 CSV with a semicolon (`;`) delimiter and keep the header row. Both reference pages read this file when the site builds.
 
-- Set `show_cs` and `show_en` to `1` to publish a language, or `0` to hide it. Published languages require their `client`, `title`, and `description` columns. Use `eol`, `plc`, or `software` for `category`.
-- Separate multiple customers, technologies, or badges with ` | `. The `customer`, `end_customer`, and `commissioned_by` fields are data only; the `client_cs` and `client_en` fields are what the pages display.
-- [offers.csv](src/data/offers.csv) contains one row per accounting folder and is not read by the website. If the folder specifies no separate end customer, it is the same as the customer. To publish an offer, add a reference row and enter its details and visibility there. Only one reference with the same `reference_group` may be published per language.
+- Set `show_cs` and `show_en` to `1` to publish a language, or `0` to hide it. Published languages require a customer and their localized `title` and `description`. Use `eol`, `plc`, or `software` for `category`.
+- Separate multiple technologies or badges with ` | `. The pages display `end_customer`, or `customer` if no separate end customer is known. The `commissioned_by` field is data only.
+- The combined file contains one row per offer plus website references without a matching offer. Offers that are not verified references have both visibility fields set to `0`. To publish one, fill in the required public fields and set the appropriate visibility field to `1`. Only one reference with the same `reference_group` may be published per language.
+- The `offer_number`, `source_folder`, `offer_project`, and `project_description` columns identify and describe entries from [offers.csv](src/data/offers.csv). The `customer` uses the corresponding name in [customers.csv](src/data/customers.csv), including the correction of `HUYNDAI` to `HYUNDAI`. The source files retain the original offer customer values and customer details without duplicating them here.
+- The `website_source_cs` and `website_details_cs` columns preserve descriptions from the saved original website. Website-only references may have no known direct `customer`; their `end_customer` is taken from the website.
 - Offer `project_description` values are editable Czech descriptions, based on matching offer PDFs or references where available. They are not updated automatically; some offers have no description.
-- [customers.csv](src/data/customers.csv) is an editable snapshot of distinct customer and end-customer names from the offers. Its `direct_customer` and `end_customer` columns indicate each role with `1` or `0`; it is not updated automatically.
+- [customers.csv](src/data/customers.csv) is an editable snapshot of distinct customer and end-customer names from the offers. Its `direct_customer` and `end_customer` columns indicate each role with `1` or `0`. The combined file is a snapshot and is not updated automatically when the source CSVs change.
 - Folder-derived names are provisional, not proof that a project was completed.
 - The Czech 2014–2016 Magneti Marelli card is consolidated; the corresponding English-only rows retain the existing individual cards.
 
-The CSV files contain customer and offer metadata. They are not included in the generated site, but they **will be visible in the repository** if committed to a public repository.
+The CSV files contain customer and offer metadata. Unpublished fields are not included in the generated site, but they **will be visible in the repository** if committed to a public repository.
 
 ## 🧞 Commands
 
