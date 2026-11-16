@@ -227,6 +227,44 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "osdp-control-panel",
+      "repo": "CodElecCz/osdp-control-panel",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "OSDP Control Panel: testování čteček přes RS-485",
+          "description": "PyQt6 aplikace pro připojení k OSDP zařízením, prohledávání adres a testování příkazů čtečky přes RS-485.",
+          "date": "2026-11-16",
+          "tags": [
+            "OSDP",
+            "RS-485",
+            "PyQt6",
+            "Access Control"
+          ]
+        },
+        "en": {
+          "title": "OSDP Control Panel: testing readers over RS-485",
+          "description": "A PyQt6 application for connecting to OSDP devices, scanning addresses, and testing reader commands over RS-485.",
+          "date": "2026-11-16",
+          "tags": [
+            "OSDP",
+            "RS-485",
+            "PyQt6",
+            "Access Control"
+          ]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
     }
   ]
 }
