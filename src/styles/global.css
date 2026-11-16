@@ -143,3 +143,34 @@ hr {
 	white-space: nowrap;
 }
 }
+
+.article-content code {
+	padding: 2px 6px;
+	background-color: rgb(30 41 59);
+	color: rgb(165 243 252);
+	border-radius: 4px;
+	font-size: 0.9em;
+	overflow-wrap: anywhere;
+}
+.article-content pre {
+	background-color: rgb(2 6 23);
+	border: 1px solid rgb(30 41 59);
+	color: rgb(226 232 240);
+	overflow-x: auto;
+	padding: 1em;
+	font-size: 0.85em;
+}
+.article-content pre > code {
+	all: unset;
+	white-space: pre;
+}
+.article-content table {
+	display: block;
+	overflow-x: auto;
+	font-size: 0.9em;
+}
+.article-content th,
+.article-content td {
+	border: 1px solid rgb(51 65 85);
+	padding: 0.4em 0.6em;
+}
