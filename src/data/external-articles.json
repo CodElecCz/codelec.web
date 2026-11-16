@@ -189,6 +189,44 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "engel-data-collection",
+      "repo": "CodElecCz/engel-data-collection",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "ENGEL Data Collection: import výrobních reportů do SQL",
+          "description": "Qt aplikace sleduje reportovací soubory strojů ENGEL, zpracovává nové výrobní záznamy a ukládá je do SQL databáze.",
+          "date": "2026-11-16",
+          "tags": [
+            "ENGEL",
+            "Qt",
+            "SQL",
+            "Výroba"
+          ]
+        },
+        "en": {
+          "title": "ENGEL Data Collection: importing production reports into SQL",
+          "description": "A Qt application that monitors ENGEL machine report files, processes new production records, and stores them in a SQL database.",
+          "date": "2026-11-16",
+          "tags": [
+            "ENGEL",
+            "Qt",
+            "SQL",
+            "Manufacturing"
+          ]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
     }
   ]
 }
