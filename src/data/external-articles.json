@@ -113,6 +113,44 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "stm32f1-dfu",
+      "repo": "CodElecCz/STM32F1-DFU",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "STM32F1 USB DFU bootloader",
+          "description": "USB DFU bootloader pro STM32F103 s kontrolním součtem firmware a aktualizací z SPI SRAM.",
+          "date": "2026-11-16",
+          "tags": [
+            "STM32",
+            "DFU",
+            "Bootloader",
+            "USB"
+          ]
+        },
+        "en": {
+          "title": "STM32F1 USB DFU bootloader",
+          "description": "USB DFU bootloader for STM32F103 with firmware checksum and SPI SRAM image update.",
+          "date": "2026-11-16",
+          "tags": [
+            "STM32",
+            "DFU",
+            "Bootloader",
+            "USB"
+          ]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
     }
   ]
 }
