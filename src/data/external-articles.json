@@ -3,7 +3,7 @@
     {
       "slug": "stm32f1-clrc663",
       "repo": "CodElecCz/STM32F1-CLRC663",
-      "branch": "main",
+      "branch": "master",
       "defaultLocale": "cs",
       "sourceFiles": {
         "cs": "blog/index.cs.md",
