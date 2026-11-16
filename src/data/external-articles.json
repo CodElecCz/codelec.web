@@ -151,6 +151,44 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "arburg-data-collection",
+      "repo": "CodElecCz/ArburgDataCollection",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "Arburg Data Collection: výrobní data přes OPC UA do SQL",
+          "description": "Qt aplikace pro čtení výrobních hodnot stroje Arburg přes OPC UA a ukládání změn výrobních počítadel do SQL databáze.",
+          "date": "2026-11-16",
+          "tags": [
+            "Arburg",
+            "OPC UA",
+            "Qt",
+            "SQL"
+          ]
+        },
+        "en": {
+          "title": "Arburg Data Collection: OPC UA production data to SQL",
+          "description": "A Qt application that reads Arburg production values over OPC UA and records production-counter changes in a SQL database.",
+          "date": "2026-11-16",
+          "tags": [
+            "Arburg",
+            "OPC UA",
+            "Qt",
+            "SQL"
+          ]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
     }
   ]
 }
