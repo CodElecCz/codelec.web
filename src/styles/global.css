@@ -211,3 +211,31 @@ hr {
 }
 .article-content hr { border-top-color: rgb(51 65 85); margin: 2em 0; }
 .article-content th { color: rgb(248 250 252); background: rgb(15 23 42); }
+
+/* Keep long content from widening the page, which makes mobile browsers zoom out */
+main:has(.article-content) {
+	width: 100%;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+.article-content {
+	max-width: 100%;
+	min-width: 0;
+}
+.article-content img,
+.article-content video,
+.article-content iframe,
+.article-content svg {
+	max-width: 100%;
+	height: auto;
+}
+.article-content pre,
+.article-content table {
+	max-width: 100%;
+}
+@media (max-width: 640px) {
+	.article-content { font-size: 0.95rem; line-height: 1.7; }
+	.article-content h1 { font-size: 1.6rem; }
+	.article-content h2 { font-size: 1.3rem; }
+	.article-content h3 { font-size: 1.15rem; }
+}
