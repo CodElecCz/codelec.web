@@ -277,7 +277,7 @@
       },
       "locales": {
         "cs": {
-          "title": "Protocol Tracer: stromový přehled hodnot zařízení",
+          "title": "Protocol Tracer: diagnostika a monitoring průmyslových protokolů",
           "description": "Qt aplikace pro cyklické sledování a řízení hodnot přes Modbus, OMC8000 a ELM327, konfigurované pomocí XML profilů.",
           "date": "2026-11-16",
           "tags": [
@@ -288,7 +288,7 @@
           ]
         },
         "en": {
-          "title": "Protocol Tracer: a tree view of device values",
+          "title": "Protocol Tracer: Industrial Protocol Diagnostics and Monitoring",
           "description": "A Qt application for cyclic monitoring and control over Modbus, OMC8000, and ELM327 using XML profiles.",
           "date": "2026-11-16",
           "tags": [
