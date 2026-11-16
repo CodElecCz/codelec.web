@@ -75,6 +75,44 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "stm32f1-lcd16032",
+      "repo": "CodElecCz/STM32F1-LCD16032",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "STM32F1 + LCD 160x32",
+          "description": "Grafický LCD WG16032D3 (ST7920) přes 8bitové paralelní rozhraní, zpoždění na TIM1 a knihovna u8g2.",
+          "date": "2026-11-16",
+          "tags": [
+            "STM32",
+            "LCD",
+            "ST7920",
+            "u8g2"
+          ]
+        },
+        "en": {
+          "title": "STM32F1 + LCD 160x32",
+          "description": "WG16032D3 (ST7920) graphic LCD over an 8-bit parallel interface, TIM1 delays and the u8g2 library.",
+          "date": "2026-11-16",
+          "tags": [
+            "STM32",
+            "LCD",
+            "ST7920",
+            "u8g2"
+          ]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
     }
   ]
 }
