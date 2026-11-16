@@ -154,7 +154,7 @@
     },
     {
       "slug": "arburg-data-collection",
-      "repo": "CodElecCz/ArburgDataCollection",
+      "repo": "CodElecCz/arburg-data-collection",
       "branch": "master",
       "defaultLocale": "cs",
       "sourceFiles": {
