@@ -17,10 +17,18 @@ export async function fetchGitHubProjects(fetcher: typeof fetch = fetch): Promis
 		const projects: GitHubProject[] = [];
 		const perPage = 100;
 		for (let page = 1; ; page++) {
+			const headers: Record<string, string> = {
+				'User-Agent': 'CodElec-Web',
+				Accept: 'application/vnd.github+json',
+			};
+			const token = process.env.GITHUB_TOKEN;
+			if (token) {
+				headers.Authorization = `Bearer ${token}`;
+			}
 			const response = await fetcher(
 				`https://api.github.com/users/CodElecCz/repos?per_page=${perPage}&sort=updated&page=${page}`,
 				{
-					headers: { 'User-Agent': 'CodElec-Web', Accept: 'application/vnd.github+json' },
+					headers,
 					signal: AbortSignal.timeout(10000),
 				},
 			);

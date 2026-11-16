@@ -1,0 +1,32 @@
+{
+  "articles": [
+    {
+      "slug": "stm32f1-clrc663",
+      "repo": "CodElecCz/STM32F1-CLRC663",
+      "branch": "main",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "STM32F1 + CLRC663",
+          "description": "Vývoj firmware, komunikace a testování pro projekt STM32F1 s čtečkou CLRC663.",
+          "date": "2025-01-15",
+          "tags": ["STM32", "NFC", "RFID", "Firmware"]
+        },
+        "en": {
+          "title": "STM32F1 + CLRC663",
+          "description": "Firmware, communication and testing work for the STM32F1 CLRC663 project.",
+          "date": "2025-01-15",
+          "tags": ["STM32", "NFC", "RFID", "Firmware"]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
+    }
+  ]
+}
