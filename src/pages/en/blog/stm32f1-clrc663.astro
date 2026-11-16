@@ -25,6 +25,11 @@ const contentHtml = article && article.content ? marked.parse(article.content) :
 					<p class="mb-3 text-sm text-slate-400">
 						<time datetime={article?.locale.date ?? '2025-01-15'}>{new Date(article?.locale.date ?? '2025-01-15').toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}</time>
 					</p>
+					{article && (
+						<p class="mb-3 text-sm">
+							<a class="text-cyan-300 underline decoration-cyan-400/30 underline-offset-4" href={`https://github.com/${article.repo}`} target="_blank" rel="noopener noreferrer">GitHub repository →</a>
+						</p>
+					)}
 					<div class="flex flex-wrap gap-2">
 						{(article?.locale.tags ?? ['STM32', 'NFC', 'RFID', 'Firmware']).map((tag) => (
 							<span class="rounded border border-cyan-400/20 bg-cyan-500/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-300">{tag}</span>
