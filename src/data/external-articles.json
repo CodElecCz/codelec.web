@@ -265,6 +265,44 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "protocol-tracer",
+      "repo": "CodElecCz/protocol-tracer",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "Protocol Tracer: stromový přehled hodnot zařízení",
+          "description": "Qt aplikace pro cyklické sledování a řízení hodnot přes Modbus, OMC8000 a ELM327, konfigurované pomocí XML profilů.",
+          "date": "2026-11-16",
+          "tags": [
+            "Modbus",
+            "OMC8000",
+            "ELM327",
+            "Qt"
+          ]
+        },
+        "en": {
+          "title": "Protocol Tracer: a tree view of device values",
+          "description": "A Qt application for cyclic monitoring and control over Modbus, OMC8000, and ELM327 using XML profiles.",
+          "date": "2026-11-16",
+          "tags": [
+            "Modbus",
+            "OMC8000",
+            "ELM327",
+            "Qt"
+          ]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
     }
   ]
 }
