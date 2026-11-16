@@ -17,6 +17,10 @@ if (process.env.GITHUB_TOKEN) {
   githubHeaders.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 }
 
+export function stripFrontmatter(markdown) {
+  return markdown ? markdown.replace(/^\uFEFF?---\r?\n[\s\S]*?\r?\n---\r?\n?/, '') : markdown;
+}
+
 export function rewriteRelativeGithubImages(markdown, { repo, branch = 'main', rootPath = 'blog' } = {}) {
   if (!markdown || !repo) return markdown;
 
@@ -87,10 +91,10 @@ async function main() {
     const contentEntries = {};
 
     for (const [locale, sourceFile] of Object.entries(article.sourceFiles ?? {})) {
-      const text = await fetchRepositoryMarkdown(article.repo, article.branch || 'main', sourceFile);
-      contentEntries[locale] = text ? rewriteRelativeGithubImages(text, {
+      const text = await fetchRepositoryMarkdown(article.repo, article.branch || 'master', sourceFile);
+      contentEntries[locale] = text ? rewriteRelativeGithubImages(stripFrontmatter(text), {
         repo: article.repo,
-        branch: article.branch || 'main',
+        branch: article.branch || 'master',
         rootPath: path.dirname(sourceFile).replace(/\\/g, '/'),
       }) : (article.content?.[locale] ?? '');
     }
