@@ -64,6 +64,7 @@ const dateFormat = new Intl.DateTimeFormat(isEnglish ? 'en-GB' : 'cs-CZ', {
 							{externalArticles.map((article) => {
 								const localeEntry = article.locales[locale] ?? article.locales[article.defaultLocale];
 								const articleHref = getRelativeLocaleUrl(locale, `blog/${article.slug}`);
+								const repoHref = `https://github.com/${article.repo}`;
 								return (
 									<article class="flex flex-col rounded-xl border border-slate-800 bg-slate-900/60 p-6 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900">
 										<div class="mb-4 flex flex-wrap gap-2">
@@ -83,6 +84,9 @@ const dateFormat = new Intl.DateTimeFormat(isEnglish ? 'en-GB' : 'cs-CZ', {
 										<div class="mt-auto flex flex-wrap gap-3">
 											<a class="text-sm font-semibold text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200" href={articleHref}>
 												{isEnglish ? 'Read article' : 'Přečíst článek'} →
+											</a>
+											<a class="text-sm font-semibold text-slate-300 underline decoration-slate-500/50 underline-offset-4 transition hover:text-cyan-200" href={repoHref} target="_blank" rel="noopener noreferrer">
+												GitHub repo
 											</a>
 										</div>
 									</article>
