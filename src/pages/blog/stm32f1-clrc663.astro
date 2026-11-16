@@ -15,7 +15,7 @@ const contentHtml = article && article.content ? marked.parse(article.content) :
 	<head>
 		<BaseHead title={`${article?.locale.title ?? 'STM32F1 + CLRC663'} | ${SITE_TITLE}`} description={article?.locale.description ?? 'Externí článek z repozitáře CodElecCz/STM32F1-CLRC663.'} />
 	</head>
-	<body class="min-h-screen bg-slate-950 text-base leading-relaxed text-slate-200">
+	<body class="min-h-screen bg-slate-950 bg-none text-base leading-relaxed text-slate-200">
 		<Header />
 		<main class="mx-auto max-w-4xl px-5 py-12 sm:px-8 sm:py-16">
 			<article class="prose prose-invert max-w-none">
