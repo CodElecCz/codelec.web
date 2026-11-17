@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://codeleccz.github.io/codelec.web/sitemap-index.xml

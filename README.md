@@ -41,6 +41,12 @@ The `src/content/` directory contains "collections" of related Markdown and MDX 
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+## Search indexing
+
+The build generates `sitemap-index.xml` and its sitemap automatically at `https://codeleccz.github.io/codelec.web/sitemap-index.xml`. Submit that URL in Google Search Console.
+
+The `public/robots.txt` file is published under `/codelec.web/`. Search engines only read `robots.txt` at the domain root, so its sitemap directive must also be added to `https://codeleccz.github.io/robots.txt`, which is managed by the separate `codeleccz.github.io` repository. A root robots file applies to every site on that host.
+
 ## GitHub projects and articles
 
 The Czech and English project pages fetch public repositories from the CodElecCz GitHub account during the build, excluding forks and the two website repositories. If the GitHub API is unavailable or rate-limited, the pages show a warning and link to the profile; rebuild when the API is available to refresh the list.
