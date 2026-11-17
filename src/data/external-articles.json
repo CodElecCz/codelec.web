@@ -303,6 +303,44 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "turck-rfid-twincat-bridge",
+      "repo": "CodElecCz/turck-rfid-twincat-bridge",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "Turck RFID–TwinCAT ADS Bridge: přenos EPC do PLC",
+          "description": "Aplikace propojuje čtečku Turck PD67-UNI s Beckhoff TwinCAT: přijímá EPC a čas přes HTTP a zapisuje je do PLC přes ADS.",
+          "date": "2026-11-16",
+          "tags": [
+            "Turck",
+            "RFID",
+            "TwinCAT",
+            "ADS"
+          ]
+        },
+        "en": {
+          "title": "Turck RFID–TwinCAT ADS Bridge: forwarding EPC data to a PLC",
+          "description": "Connects a Turck PD67-UNI reader to Beckhoff TwinCAT, receiving EPC and scan time over HTTP and writing them to PLC variables through ADS.",
+          "date": "2026-11-16",
+          "tags": [
+            "Turck",
+            "RFID",
+            "TwinCAT",
+            "ADS"
+          ]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
     }
   ]
 }
