@@ -341,6 +341,44 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "sagem-morpho-terminal",
+      "repo": "CodElecCz/sagem-morpho-terminal",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "Sagem Morpho Terminal: komunikace se čtečkou přes sériový port",
+          "description": "Qt aplikace pro sériovou komunikaci se zařízeními Sagem Morpho: terminál, příkazy, identifikace a zpracování binárního protokolu ILV.",
+          "date": "2026-11-18",
+          "tags": [
+            "Qt",
+            "Sagem Morpho",
+            "Serial Port",
+            "ILV"
+          ]
+        },
+        "en": {
+          "title": "Sagem Morpho Terminal: serial communication with a reader",
+          "description": "A Qt application for serial communication with Sagem Morpho devices, combining a terminal, device commands, identification, and ILV protocol handling.",
+          "date": "2026-11-18",
+          "tags": [
+            "Qt",
+            "Sagem Morpho",
+            "Serial Port",
+            "ILV"
+          ]
+        }
+      },
+      "content": {
+        "cs": "",
+        "en": ""
+      }
     }
   ]
 }
