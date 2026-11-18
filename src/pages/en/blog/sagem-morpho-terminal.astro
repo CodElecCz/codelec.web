@@ -8,12 +8,21 @@ import { getExternalArticleBySlug } from '../../../data/external-articles';
 
 const article = getExternalArticleBySlug('sagem-morpho-terminal', 'en');
 const contentHtml = article && article.content ? marked.parse(article.content) : marked.parse('# Sagem Morpho Terminal\n\nArticle details will be available when the external source has been loaded.');
+const siteBaseUrl = new URL(
+	import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`,
+	Astro.site,
+);
+const czechArticleUrl = new URL('blog/sagem-morpho-terminal/', siteBaseUrl);
+const englishArticleUrl = new URL('en/blog/sagem-morpho-terminal/', siteBaseUrl);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={`${article?.locale.title ?? 'Sagem Morpho Terminal'} | ${SITE_TITLE}`} description={article?.locale.description ?? 'External article from the CodElecCz/sagem-morpho-terminal repository.'} />
+		<link rel="alternate" hreflang="cs-CZ" href={czechArticleUrl} />
+		<link rel="alternate" hreflang="en" href={englishArticleUrl} />
+		<link rel="alternate" hreflang="x-default" href={czechArticleUrl} />
 	</head>
 	<body class="min-h-screen bg-slate-950 bg-none text-base leading-relaxed text-slate-200">
 		<Header />

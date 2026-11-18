@@ -17,7 +17,18 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'cs',
+        locales: {
+          cs: 'cs-CZ',
+          en: 'en',
+        },
+      },
+    }),
+  ],
 
   fonts: [
       {
