@@ -354,7 +354,7 @@
       "locales": {
         "cs": {
           "title": "Sagem Morpho Terminal: komunikace se čtečkou přes sériový port",
-          "description": "Qt aplikace pro sériovou komunikaci se zařízeními Sagem Morpho: terminál, příkazy, identifikace a zpracování binárního protokolu ILV.",
+          "description": "Qt aplikace s vlastním sériovým promptem, biometrickými a databázovými operacemi a samostatnou implementací binárního protokolu Morpho.",
           "date": "2026-11-18",
           "tags": [
             "Qt",
@@ -365,7 +365,7 @@
         },
         "en": {
           "title": "Sagem Morpho Terminal: serial communication with a reader",
-          "description": "A Qt application for serial communication with Sagem Morpho devices, combining a terminal, device commands, identification, and ILV protocol handling.",
+          "description": "A Qt application with a custom serial prompt, biometric and database operations, and a separate implementation of the Morpho binary protocol.",
           "date": "2026-11-18",
           "tags": [
             "Qt",
