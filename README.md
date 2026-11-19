@@ -43,9 +43,9 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 ## Search indexing
 
-The build generates `sitemap-index.xml` and its sitemap automatically at `https://codeleccz.github.io/sitemap-index.xml`. Submit that URL in Google Search Console.
+The build generates `sitemap-index.xml` and its sitemap automatically at `https://codeleccz.github.io/sitemap-index.xml`, including the Hoerbiger reports site at `https://codeleccz.github.io/hoerbiger-reports/`. Submit the sitemap URL in Google Search Console.
 
-The `public/robots.txt` file is published at the domain root and points search engines to the sitemap.
+The `public/robots.txt` file is published at the domain root and points search engines to both the main sitemap and the Hoerbiger reports sitemap.
 
 ## GitHub projects and articles
 

@@ -20,6 +20,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
+      customPages: ['https://codeleccz.github.io/hoerbiger-reports/'],
       i18n: {
         defaultLocale: 'cs',
         locales: {

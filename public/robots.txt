@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://codeleccz.github.io/sitemap-index.xml
+Sitemap: https://codeleccz.github.io/hoerbiger-reports/sitemap-index.xml
