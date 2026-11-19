@@ -379,6 +379,40 @@
         "cs": "",
         "en": ""
       }
+    },
+    {
+      "slug": "jet-printer-interface",
+      "repo": "CodElecCz/jet-printer-interface",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "JetPrinter Interface: Qt rozhraní pro inkoustový tisk",
+          "description": "Desktopová aplikace v Qt pro obsluhu inkoustové tiskové stanice, propojení pohledů tiskárny a PLC, nastavení výrobních programů a zobrazení reportů.",
+          "date": "2026-11-19",
+          "tags": [
+            "Qt",
+            "C++",
+            "JetPrinter",
+            "PLC"
+          ]
+        },
+        "en": {
+          "title": "JetPrinter Interface: a Qt control UI for ink printing",
+          "description": "A Qt desktop application for operating an ink printing station, coordinating printer and PLC views, configuring production programs, and reviewing reports.",
+          "date": "2026-11-19",
+          "tags": [
+            "Qt",
+            "C++",
+            "JetPrinter",
+            "PLC"
+          ]
+        }
+      }
     }
   ]
 }
