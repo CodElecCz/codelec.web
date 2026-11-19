@@ -10,7 +10,7 @@ type GitHubProjectsResult =
 	| { ok: true; projects: GitHubProject[] }
 	| { ok: false };
 
-const excludedNames = new Set(['codelec.web', 'codeleccz.github.io']);
+const excludedNames = new Set(['codeleccz.github.io']);
 
 export async function fetchGitHubProjects(fetcher: typeof fetch = fetch): Promise<GitHubProjectsResult> {
 	try {
