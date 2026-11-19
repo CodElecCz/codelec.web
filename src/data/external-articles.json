@@ -398,7 +398,8 @@
             "Qt",
             "C++",
             "JetPrinter",
-            "PLC"
+            "PLC",
+            "LEIBINGER JET3"
           ]
         },
         "en": {
@@ -409,7 +410,8 @@
             "Qt",
             "C++",
             "JetPrinter",
-            "PLC"
+            "PLC",
+            "LEIBINGER JET3"
           ]
         }
       }
