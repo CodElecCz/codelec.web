@@ -27,15 +27,15 @@ export function rewriteRelativeGithubImages(markdown, { repo, branch = 'main', r
   const baseUrl = new URL(`https://raw.githubusercontent.com/${repo}/${branch}/${rootPath.replace(/^\/+/, '')}/`);
 
   const rewriteMatch = (match, relativePath) => {
-    if (!relativePath || /^(?:[a-z]+:|\/\/|#)/i.test(relativePath)) {
+    if (!relativePath || /^(?:[a-z][a-z0-9+.-]*:|\/|#)/i.test(relativePath)) {
       return match;
     }
     const absoluteUrl = new URL(relativePath.replace(/\\/g, '/'), baseUrl).toString();
     return match.replace(relativePath, absoluteUrl);
   };
 
-  let rewritten = markdown.replace(/!\[[^\]]*\]\((\.\.?\/[^)]+)\)/g, (match, relativePath) => rewriteMatch(match, relativePath));
-  rewritten = rewritten.replace(/<img[^>]*\s(?:src|data-src)=(["'])(\.\.?\/[^"']+)\1[^>]*>/gi, (match, quote, relativePath) => rewriteMatch(match, relativePath));
+  let rewritten = markdown.replace(/!\[[^\]]*\]\(([^)\s]+)(?=\s|\))/g, (match, relativePath) => rewriteMatch(match, relativePath));
+  rewritten = rewritten.replace(/<img\b[^>]*\s(?:src|data-src)\s*=\s*(["'])([^"']+)\1[^>]*>/gi, (match, quote, relativePath) => rewriteMatch(match, relativePath));
   return rewritten;
 }
 
