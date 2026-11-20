@@ -1,4 +1,3 @@
----
 import { getCollection } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import BaseHead from './BaseHead.astro';
@@ -28,7 +27,7 @@ const dateFormat = new Intl.DateTimeFormat(isEnglish ? 'en-GB' : 'cs-CZ', {
 <html lang={locale}>
 	<head>
 		<BaseHead
-			title={`${isEnglish ? 'Publications' : 'Publikace'} | ${SITE_TITLE}`}
+			title={`${isEnglish ? 'Publication' : 'Publikace'} | ${SITE_TITLE}`}
 			description={isEnglish
 				? 'Technical articles on software, embedded systems and automation from CodElec.'
 				: 'Odborné články CodElec o softwaru, embedded systémech a automatizaci.'}
@@ -41,10 +40,10 @@ const dateFormat = new Intl.DateTimeFormat(isEnglish ? 'en-GB' : 'cs-CZ', {
 				<div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20">
 					<p class="mb-4 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-cyan-300 sm:text-sm">
 						<span class="h-px w-8 bg-cyan-400"></span>
-						CODELEC · {isEnglish ? 'PUBLICATIONS' : 'PUBLIKACE'}
+						CODELEC · {isEnglish ? 'PUBLICATION' : 'PUBLIKACE'}
 					</p>
 					<h1 class="mb-5 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-						{isEnglish ? 'Publications' : 'Publikace'}
+						{isEnglish ? 'Publication' : 'Publikace'}
 					</h1>
 					<p class="max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
 						{isEnglish
@@ -91,7 +90,7 @@ const dateFormat = new Intl.DateTimeFormat(isEnglish ? 'en-GB' : 'cs-CZ', {
 										</div>
 									</article>
 								);
-								})}
+							})}
 						</div>
 					</div>
 				</section>
