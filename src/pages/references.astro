@@ -1,0 +1,172 @@
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+import { czechReferenceGroups } from '../data/references';
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+
+const groups = czechReferenceGroups;
+
+const totalProjects = groups.reduce((total, group) => total + group.projects.length, 0);
+---
+
+<!doctype html>
+<html lang="cs" class="scroll-smooth">
+	<head>
+		<BaseHead
+			title={`Reference & realizované projekty | ${SITE_TITLE}`}
+			description="Vybrané realizace v automobilovém průmyslu a průmyslové automatizaci v ČR, Německu a Číně. Projekty z let 2014–2026."
+		/>
+	</head>
+	<body class="min-h-screen bg-slate-950 bg-none text-base leading-relaxed text-slate-200">
+		<Header />
+		<main class="m-0 w-full max-w-none p-0">
+			<section class="relative isolate overflow-hidden border-b border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+				<div aria-hidden="true" class="pointer-events-none absolute -right-36 -top-40 size-[30rem] rounded-full border border-cyan-400/10"></div>
+				<div aria-hidden="true" class="pointer-events-none absolute -right-16 -top-20 size-[20rem] rounded-full border border-cyan-400/10"></div>
+				<div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20">
+					<p class="mb-4 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-cyan-300 sm:text-sm">
+						<span class="h-px w-8 bg-cyan-400"></span>
+						VYBRANÉ REALIZACE · 2014–2026
+					</p>
+					<h1 class="mb-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+						Reference <span class="text-cyan-300">&amp; realizované projekty</span>
+					</h1>
+					<p class="mb-8 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
+						Zkušenosti z automobilového průmyslu a průmyslové automatizace v České republice,
+						Německu a Číně — od EoL testerů a kamerových systémů po PLC a embedded vývoj.
+					</p>
+					<div class="mb-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-slate-400 sm:text-sm">
+						<span>ČR</span>
+						<span>Německo</span>
+						<span>Čína</span>
+						<span>{totalProjects} referenčních karet</span>
+					</div>
+					<div class="mb-7">
+						<p class="mb-3 font-mono text-xs font-semibold tracking-[0.18em] text-slate-500">
+							FILTROVAT PODLE OBLASTI
+						</p>
+						<div role="group" aria-label="Filtrovat reference podle oblasti" class="flex flex-wrap gap-2">
+							{[
+								{ id: 'all', label: 'Vše' },
+								{ id: 'eol', label: 'EoL Testery' },
+								{ id: 'software', label: 'PC Aplikace & Embedded' },
+								{ id: 'plc', label: 'PLC & Automatizace' },
+							].map((filter, index) => (
+								<button
+									type="button"
+									data-project-filter={filter.id}
+									aria-pressed={index === 0 ? 'true' : 'false'}
+									class="rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 font-mono text-xs font-semibold text-slate-300 transition hover:border-cyan-400/60 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 aria-pressed:border-cyan-400 aria-pressed:bg-cyan-400 aria-pressed:text-slate-950 sm:text-sm"
+								>
+									{filter.label}
+								</button>
+							))}
+						</div>
+						<p id="filter-status" class="mb-0 mt-3 text-xs text-slate-500" aria-live="polite">
+							Zobrazeno {totalProjects} referenčních karet.
+						</p>
+					</div>
+					<nav aria-label="Přejít na rok" class="flex flex-wrap gap-2">
+						{groups.map((group) => (
+							<a
+								data-year-jump={group.id}
+								class="rounded-md border border-slate-700 bg-slate-900/70 px-3 py-2 font-mono text-xs text-slate-300 no-underline transition hover:border-cyan-400/60 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 sm:text-sm"
+								href={`#${group.id}`}
+							>
+								{group.label}
+							</a>
+						))}
+					</nav>
+				</div>
+			</section>
+
+			<div class="mx-auto max-w-7xl space-y-16 px-5 py-14 sm:px-8 sm:py-20">
+				{groups.map((group) => (
+					<section id={group.id} data-project-year={group.id} aria-labelledby={`${group.id}-title`} class="scroll-mt-24">
+						<div class="mb-6 flex flex-col gap-3 border-b border-slate-800 pb-5 sm:flex-row sm:items-end sm:justify-between">
+							<div>
+								<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">
+									{group.context}
+								</p>
+								<h2 id={`${group.id}-title`} class="m-0 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+									{group.label}
+								</h2>
+							</div>
+							<p data-project-count class="m-0 font-mono text-xs text-slate-500">
+								{String(group.projects.length).padStart(2, '0')} KARET
+							</p>
+						</div>
+
+						<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+							{group.projects.map((project, index) => (
+								<article data-project-card data-project-category={project.category} class="group rounded-xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:border-cyan-400/40 hover:bg-slate-900 sm:p-6">
+									<div class="mb-5 flex items-center justify-between gap-3">
+										<p class="m-0 min-w-0 break-words text-sm font-semibold text-cyan-200">
+											{project.clientWebsite ? (
+												<a href={project.clientWebsite} title={project.clientFullName} class="underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400">{project.client}</a>
+											) : (
+												<span title={project.clientFullName}>{project.client}</span>
+											)}
+										</p>
+										<span class="shrink-0 font-mono text-xs text-slate-500">
+											{project.year} / {String(index + 1).padStart(2, '0')}
+										</span>
+									</div>
+									<h3 class="mb-3 text-lg font-semibold leading-snug text-white sm:text-xl">
+										{project.title}
+									</h3>
+									{project.commissionedBy && (
+										<p class="mb-3 text-xs text-slate-400">Realizace přes {project.commissionedBy}</p>
+									)}
+									{project.badges && (
+										<ul aria-label="Modely vozidel a projekty" class="mb-5 flex list-none flex-wrap gap-2 p-0">
+											{project.badges.map((badge) => (
+												<li class="rounded-md border border-cyan-400/20 bg-cyan-400/5 px-2.5 py-1 font-mono text-xs font-semibold text-cyan-200">
+													{badge}
+												</li>
+											))}
+										</ul>
+									)}
+									<p class="mb-5 text-sm leading-relaxed text-slate-400">{project.description}</p>
+									<ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+										{project.technologies.map((technology) => (
+											<li class="rounded border border-slate-700/80 bg-slate-950/70 px-2.5 py-1 font-mono text-[0.68rem] text-slate-300">
+												{technology}
+											</li>
+										))}
+									</ul>
+								</article>
+							))}
+						</div>
+					</section>
+				))}
+			</div>
+
+			<section class="border-y border-slate-800 bg-slate-900/70">
+				<div class="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-12 sm:px-8 md:flex-row md:items-center md:justify-between">
+					<div>
+						<p class="mb-2 font-mono text-xs font-semibold tracking-[0.18em] text-cyan-300">
+							MÁTE PODOBNÝ PROJEKT?
+						</p>
+						<h2 class="m-0 text-2xl font-bold text-white">Pojďme ho probrat.</h2>
+					</div>
+					<a
+						class="inline-flex w-fit items-center justify-center rounded-md bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 no-underline transition hover:bg-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+						href={`${base}contact/`}
+					>
+						Kontaktovat
+						<span aria-hidden="true" class="ml-2">→</span>
+					</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+		<script>
+			import '../scripts/reference-filters';
+		</script>
+	</body>
+</html>

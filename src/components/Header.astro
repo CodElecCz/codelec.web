@@ -14,30 +14,28 @@ const englishRoute = isEnglish ? route.replace(/^en\/?/, '') : '';
 
 const csToEn: Record<string, string> = {
 	'': '',
-	reference: 'references',
+	references: 'references',
 	contact: 'contact',
-	blog: 'publication',
+	publication: 'publication',
+	blog: 'blog',
 };
 const enToCs: Record<string, string> = {
 	'': '',
-	references: 'reference',
+	references: 'references',
 	blog: 'blog',
-	publication: 'blog',
+	publication: 'publication',
 	contact: 'contact',
 };
 
 function getLanguageUrl(locale: 'cs' | 'en') {
 	if (locale === 'en') {
 		if (isEnglish) return getRelativeLocaleUrl('en', englishRoute);
-		const translatedRoute =
-			route.startsWith('blog/') ? 'blog' : csToEn[route] ?? '';
+		const translatedRoute = route.startsWith('blog/') ? route : csToEn[route] ?? '';
 		return getRelativeLocaleUrl('en', translatedRoute);
 	}
 
 	if (!isEnglish) return getRelativeLocaleUrl('cs', route);
-	const translatedRoute = englishRoute.startsWith('publication/')
-		? 'blog'
-		: enToCs[englishRoute] ?? '';
+	const translatedRoute = englishRoute.startsWith('blog/') ? englishRoute : enToCs[englishRoute] ?? '';
 	return getRelativeLocaleUrl('cs', translatedRoute);
 }
 
@@ -50,8 +48,8 @@ const links = isEnglish
 		]
 	: [
 			{ label: 'Úvod', href: getRelativeLocaleUrl('cs', '') },
-			{ label: 'Reference', href: getRelativeLocaleUrl('cs', 'reference') },
-			{ label: 'Publikace', href: getRelativeLocaleUrl('cs', 'blog') },
+			{ label: 'Reference', href: getRelativeLocaleUrl('cs', 'references') },
+			{ label: 'Publikace', href: getRelativeLocaleUrl('cs', 'publication') },
 			{ label: 'Kontakt', href: getRelativeLocaleUrl('cs', 'contact') },
 		];
 ---
