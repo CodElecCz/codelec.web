@@ -53,6 +53,8 @@ The Czech and English project pages fetch public repositories from the CodElecCz
 
 Add Markdown or MDX articles to `src/content/blog/` using the schema in `src/content.config.ts`. The articles section is hidden when there are no posts. The English page links to the original Czech articles.
 
+Project repositories can also provide articles in `blog/index.cs.md` and `blog/index.en.md`. Register each project article in `src/data/external-articles.json` with its metadata and source files, then add its Czech and English routes under `src/pages/blog/` and `src/pages/en/blog/`. The build fetches the Markdown from the project repository and rewrites relative image links.
+
 ## Editing references
 
 Edit [references.csv](src/data/references.csv) in a spreadsheet or text editor. Save it as UTF-8 CSV with a semicolon (`;`) delimiter and keep the header row. Both reference pages read this file when the site builds.

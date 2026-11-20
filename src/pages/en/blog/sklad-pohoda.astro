@@ -1,0 +1,46 @@
+---
+import { marked } from 'marked';
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { SITE_TITLE } from '../../../consts';
+import { getExternalArticleBySlug } from '../../../data/external-articles';
+
+const article = getExternalArticleBySlug('sklad-pohoda', 'en');
+const contentHtml = article && article.content ? marked.parse(article.content) : marked.parse('# Warehouse for the POHODA Accounting System\n\nThis article will be available once the external source has been fetched.');
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${article?.locale.title ?? 'Warehouse for the POHODA Accounting System'} | ${SITE_TITLE}`} description={article?.locale.description ?? 'External article from CodElecCz/pohoda-warehouse-management.'} />
+	</head>
+	<body class="min-h-screen bg-slate-950 bg-none text-base leading-relaxed text-slate-200">
+		<Header />
+		<main class="mx-auto max-w-4xl px-5 py-12 sm:px-8 sm:py-16">
+			<article class="prose prose-invert max-w-none">
+				<div class="mb-8 border-b border-slate-800 pb-6">
+					<p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-cyan-300">CODELEC · TECHNICAL ARTICLE</p>
+					<h1 class="mb-4 text-4xl font-bold tracking-tight text-white">{article?.locale.title ?? 'Warehouse for the POHODA Accounting System'}</h1>
+					<p class="mb-3 text-sm text-slate-400">
+						<time datetime={article?.locale.date ?? '2026-11-20'}>{new Date(article?.locale.date ?? '2026-11-20').toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}</time>
+					</p>
+					{article && (
+						<p class="mb-3 text-sm">
+							<a class="text-cyan-300 underline decoration-cyan-400/30 underline-offset-4" href={`https://github.com/${article.repo}`} target="_blank" rel="noopener noreferrer">GitHub repository →</a>
+						</p>
+					)}
+					<div class="flex flex-wrap gap-2">
+						{(article?.locale.tags ?? ['POHODA', 'Warehouse', 'Qt', 'Inventory']).map((tag) => (
+							<span class="rounded border border-cyan-400/20 bg-cyan-500/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-300">{tag}</span>
+						))}
+					</div>
+				</div>
+				<div class="article-content text-slate-200">
+					<Fragment set:html={contentHtml} />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

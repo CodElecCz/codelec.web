@@ -415,6 +415,40 @@
           ]
         }
       }
+    },
+    {
+      "slug": "sklad-pohoda",
+      "repo": "CodElecCz/pohoda-warehouse-management",
+      "branch": "master",
+      "defaultLocale": "cs",
+      "sourceFiles": {
+        "cs": "blog/index.cs.md",
+        "en": "blog/index.en.md"
+      },
+      "locales": {
+        "cs": {
+          "title": "Sklad pro účetní program POHODA",
+          "description": "Ukázka skladové aplikace navazující na POHODU: synchronizace dat, příjemky, výdejky, pohyby a skladové pozice.",
+          "date": "2026-11-20",
+          "tags": [
+            "POHODA",
+            "Sklad",
+            "Qt",
+            "Warehouse"
+          ]
+        },
+        "en": {
+          "title": "Warehouse for the POHODA Accounting System",
+          "description": "A warehouse application for POHODA, covering data synchronization, receipts, issues, stock movements, and warehouse locations.",
+          "date": "2026-11-20",
+          "tags": [
+            "POHODA",
+            "Warehouse",
+            "Qt",
+            "Inventory"
+          ]
+        }
+      }
     }
   ]
 }
