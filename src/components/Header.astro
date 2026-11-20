@@ -58,13 +58,8 @@ const links = isEnglish
 <header class="sticky top-0 z-50 border-b border-slate-800/90 bg-slate-950 text-slate-100 shadow-lg shadow-black/10">
 	<div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8">
 		<a class="group flex items-center gap-3 no-underline" href={getRelativeLocaleUrl(isEnglish ? 'en' : 'cs', '')} aria-label={`${SITE_TITLE} — ${isEnglish ? 'introduction' : 'úvod'}`}>
-			<span class="flex size-11 items-center justify-center rounded-lg border border-cyan-400/40 bg-cyan-400/10 font-mono text-sm font-bold tracking-tight text-cyan-300 transition group-hover:border-cyan-300">
-				CE
-			</span>
-			<span class="flex flex-col leading-tight">
-				<span class="text-lg font-bold tracking-wide text-white">CodElec</span>
-				<span class="text-xs text-slate-400">Ing. Radomír Turča, Ph.D.</span>
-			</span>
+			<img class="h-10 w-[140px] shrink-0" src="/logo.svg" alt="" width="140" height="40" />
+			<span class="text-xs text-slate-400">Ing. Radomír Turča, Ph.D.</span>
 		</a>
 
 		<div class="flex flex-wrap items-center gap-2 sm:gap-4">
