@@ -17,6 +17,19 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+  redirects: {
+    '/uvod': '/',
+    '/reference': '/references/',
+    '/kontakt': '/contact/',
+    '/me-prispevky/uvod-do-diagnostiky-can': '/publication/',
+    '/me-prispevky/diagnostika-can-1': '/publication/',
+    '/me-prispevky/diagnostika-can-2': '/publication/',
+    '/me-prispevky/zpracovani-obrazu-1': '/publication/',
+    '/me-prispevky/zpracovani-obrazu-2': '/publication/',
+    '/me-prispevky/sklad-pohoda': '/publication/',
+    '/me-prispevky/softing-hsx': '/publication/',
+    '/me-prispevky': '/publication/',
+  },
   integrations: [
     mdx(),
     sitemap({
