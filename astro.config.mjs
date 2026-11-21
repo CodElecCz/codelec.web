@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://codeleccz.github.io',
+  site: 'https://codelec.cz',
   base: '/',
   i18n: {
     defaultLocale: 'cs',
@@ -33,7 +33,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      customPages: ['https://codeleccz.github.io/hoerbiger-reports/'],
+      customPages: ['https://codelec.cz/hoerbiger-reports/'],
       i18n: {
         defaultLocale: 'cs',
         locales: {
